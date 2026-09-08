@@ -1,0 +1,41 @@
+// 星火财商 - 数据库模型
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 联系我们 - 咨询记录
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  interest  String?
+  message   String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 课程报名记录
+model Registration {
+  id             String   @id @default(cuid())
+  name           String
+  phone          String
+  age            Int
+  gender         String
+  attendedBefore Boolean  @default(false)
+  consent        Boolean  @default(false)
+  source         String?
+  remark         String?
+  status         String   @default("pending")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([phone])
+  @@index([status])
+  @@index([createdAt])
+}
