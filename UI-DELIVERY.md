@@ -17,11 +17,10 @@
 
 ## 3. 主要修改文件
 - components/academy-home-page.tsx：可读的多行首页模板、复用 SVG、指定文案、菜单初始无障碍属性；原 useEffect 事件处理逐字保留。
-- app/globals.css：移除原首页专属旧样式段，导入独立首页样式；增加共享 Logo 尺寸规则。其余原样式保留。
+- app/globals.css：移除原首页专属旧样式段，合并完整首页样式；增加共享 Logo 尺寸规则。其余原样式保留。
 - components/logo.tsx：使用同款透明金色 Logo，保留首页链接和品牌文字。
 
 ## 4. 新增文件
-- app/academy-home.css：首页统一视觉体系与响应式断点。
 - UI-DELIVERY.md：本交付说明。
 
 ## 5. 新增依赖
@@ -49,3 +48,8 @@ npm start
 
 本地开发可用 npm run dev。保留原环境变量配置；需数据库的功能仍按原项目 .env.example 配置。没有新环境变量。
 压缩包含所有原始源码、资源、迁移文件和文档，不含 node_modules、.next 等可再生成产物。
+
+## 本轮部署兼容整理
+首页样式已合并到原有 app/globals.css，不再引用新增 CSS 文件。暖金配色与火种动画保留。
+此前 npm run build 与 Vercel 的完整命令不同：Vercel 执行 prisma generate、prisma migrate deploy、next build。未提供失败日志，无法确认实际失败原因；本次不擅自删除数据库迁移步骤。
+更新请上传本包内 app 和 components 文件夹到原仓库根目录，同次提交。无需新建 Vercel 项目或变更数据库配置。旧仓库即使仍有 academy-home.css 也不会被引用。
