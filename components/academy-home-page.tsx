@@ -45,6 +45,7 @@ const HOME_MARKUP = `
 <div aria-hidden="true" class="halo"></div>
 <div aria-hidden="true" class="orbit o1"><i>${SPARK_MARKUP}</i></div>
 <div aria-hidden="true" class="orbit o2"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
+<div aria-hidden="true" class="orbit orbit-stars"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
 <div class="academy-card">
 <img alt="星火财商学院" class="hero-logo" src="/images/xhcs-logo-gold.png"/>
 <small>学院成长地图</small>

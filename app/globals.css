@@ -205,7 +205,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .compare-row strong { display:block; font-weight:600; }
 .academy-home .compare-row span { font-size:14px; }
 .academy-home .quote-panel { padding:40px; display:flex; flex-direction:column; justify-content:space-between; gap:36px; background:linear-gradient(145deg,#fff5df,#f0d796); color:var(--ink); border:0; }
-.academy-home .quote-panel .big { font-size:clamp(25px,2.5vw,34px); line-height:1.65; color:var(--ink); font-family:"Songti SC",SimSun,serif; }
+.academy-home .dark .quote-panel p.big { margin:0; font-size:clamp(24px,2.25vw,32px); line-height:1.8; color:#30281c; font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; font-weight:500; letter-spacing:.015em; text-wrap:balance; }
 .academy-home .quote-panel :is(small,span) { font-size:13px; color:#726347; }
 .academy-home .loop-card h3 { margin:28px 0 12px; }
 .academy-home .loop-card ul { list-style:none; padding:20px 0 0; border-top:1px solid var(--line); font-size:14px; color:var(--muted); }
@@ -251,11 +251,19 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .reveal { opacity:1; }
 .academy-home .reveal.visible { animation:academy-appear .45s ease both; }
 @keyframes academy-appear { from { opacity:.65; transform:translateY(6px); } to { opacity:1; transform:none; } }
-/* Three stars total. Only the outer star travels; both tracks look stationary. */
+/* Eight stars with varied sizes. Only one travels around the outer track. */
 .academy-home .o1 { animation:star-orbit 110s linear infinite; }
 .academy-home .o1 i { top:calc(14.645% - 9px); left:calc(85.355% - 9px); animation:star-upright 110s linear infinite; }
-.academy-home .o2 i:first-child { width:12px; height:12px; top:calc(14.645% - 6px); left:calc(14.645% - 6px); }
-.academy-home .o2 i:last-child { width:15px; height:15px; top:calc(85.355% - 7.5px); left:calc(85.355% - 7.5px); }
+/* Keep fixed stars in the exposed space around the central card. */
+.academy-home .o2 i:first-child { width:12px; height:12px; top:0; left:50%; transform:translate(-50%,-50%); }
+.academy-home .o2 i:last-child { width:14px; height:14px; top:100%; left:50%; transform:translate(-50%,-50%); }
+.academy-home .orbit-stars { border-color:transparent; }
+.academy-home .orbit-stars i { transform:translate(-50%,-50%); }
+.academy-home .orbit-stars i:nth-child(1) { top:0; left:50%; width:17px; height:17px; }
+.academy-home .orbit-stars i:nth-child(2) { top:50%; left:100%; width:22px; height:22px; }
+.academy-home .orbit-stars i:nth-child(3) { top:100%; left:50%; width:18px; height:18px; }
+.academy-home .orbit-stars i:nth-child(4) { top:50%; left:0; width:20px; height:20px; }
+.academy-home .orbit-stars i:nth-child(5) { top:85.355%; left:14.645%; width:12px; height:12px; }
 @keyframes star-orbit { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
 @keyframes star-upright { from { transform:rotate(0deg); } to { transform:rotate(-360deg); } }
 @media(hover:hover) {

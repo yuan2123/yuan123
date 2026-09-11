@@ -29,3 +29,7 @@ npm run build（含TypeScript）和 npm run lint 均通过。
 保留原来的环境变量配置。在项目目录执行 npm ci、npm run build、npm start。
 Vercel沿用原有 prisma generate && prisma migrate deploy && next build。
 压缩包不含 node_modules、.next 等生成产物。
+
+
+## 星星与理念字体更新
+轨道增加至8颗四角星，仅1颗慢速绕行。学院核心理念引言改为深色、中等字重无衬线字体，修复深色区正文选择器覆盖。保留所有业务文案和逻辑。构建与ESLint通过；未执行浏览器实机视觉检查。
