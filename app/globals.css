@@ -117,9 +117,9 @@ body:has(.registration-app) #main{min-height:100vh}
 /* 星火财商 — homepage visual system. Business handlers remain in the component. */
 body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { display:none; }
 .academy-home {
-  --ink:#15140f; --muted:#625b50; --paper:#fffaf0; --cream:#fbf0da;
-  --gold:#a97622; --line:#eadbbd; --r-lg:24px; --r-md:16px;
-  --shadow:0 18px 48px rgb(47 43 28 / 6%); --max:1240px;
+  --ink:#191712; --muted:#625c52; --paper:#fffdf8; --cream:#f8f1e5;
+  --gold:#a77b32; --line:#e7dcc8; --r-lg:24px; --r-md:16px;
+  --shadow:0 18px 48px rgb(47 40 27 / 6%); --max:1240px;
   color:var(--ink); background:var(--paper); font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   line-height:1.8;
 }
@@ -136,7 +136,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .eyebrow { display:flex; align-items:center; gap:12px; font-size:12px; font-weight:600; letter-spacing:.14em; color:var(--gold); margin:0 0 20px; text-transform:uppercase; }
 .academy-home .eyebrow:before { content:""; width:24px; height:1px; background:currentColor; }
 .academy-home .gold { color:var(--gold); }
-.academy-home .nav { position:fixed; inset:0 0 auto; z-index:30; background:rgb(255 253 248 / 95%); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+.academy-home .nav { position:fixed; inset:0 0 auto; z-index:30; background:rgb(255 253 248 / 96%); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
 .academy-home .nav-inner { height:86px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
 .academy-home .brand { display:flex; align-items:center; gap:12px; font-size:18px; font-weight:650; }
 .academy-home .brand-logo-wrap { display:grid; place-items:center; width:44px; height:52px; }
@@ -148,52 +148,52 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home :is(.nav-cta,.academy-mobile-cta) { background:var(--ink); color:#fff!important; padding:10px 20px; border-radius:10px; }
 .academy-home .mobile-toggle { display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--ink); font-size:24px; }
 .academy-home .academy-mobile-menu { display:none; }
-.academy-home .hero { min-height:790px; padding:142px 0 72px; position:relative; background:radial-gradient(ellipse at 84% 30%,rgba(239,196,92,.25),transparent 43%),linear-gradient(120deg,#fffdf6 0%,#fff8e9 64%,#fcf0d5 100%); overflow:visible; }
+.academy-home .hero { min-height:790px; padding:142px 0 72px; position:relative; background:radial-gradient(ellipse at 84% 30%,rgba(205,163,76,.14),transparent 42%),linear-gradient(120deg,#fffefb 0%,#fbf7ee 66%,#f7eedc 100%); overflow:visible; }
 .academy-home .hero:before { display:none; }
 .academy-home .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
 .academy-home .hero h1 { font-size:clamp(38px,4.1vw,58px); line-height:1.45; letter-spacing:-.04em; font-weight:650; margin:22px 0 26px; }
 .academy-home .hero-line { display:block; white-space:nowrap; }
 .academy-home .hero h1 .hero-line { color:var(--ink); }
-.academy-home .hero h1 :is(.hero-brand-name,.hero-slogan-gold) { color:#ac7d27; background:linear-gradient(115deg,#9b691a,#bc892b 44%,#d1a74e 72%,#a77622); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-right:.16em; }
+.academy-home .hero h1 :is(.hero-brand-name,.hero-slogan-gold) { color:#a77b32; background:linear-gradient(115deg,#8f651f,#ae8135 48%,#c19a50 72%,#967027); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-right:.16em; }
 .academy-home .hero h1 .hero-slogan-dark { color:var(--ink); }
 .academy-home .hero-copy { font-size:16px; line-height:2; max-width:510px; margin:0 0 32px; }
 .academy-home .actions { display:flex; flex-wrap:wrap; gap:12px; }
 .academy-home .btn { min-height:48px; display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:10px; font-size:14px; font-weight:600; transition:transform .22s,background .22s,border-color .22s; }
-.academy-home .btn-primary { color:#fff; background:linear-gradient(120deg,#a77520,#c59637); border:1px solid #ae8231; box-shadow:0 10px 26px rgba(183,138,50,.18); }
+.academy-home .btn-primary { color:#fff; background:linear-gradient(120deg,#98702c,#b4883b); border:1px solid #9e752f; box-shadow:0 10px 26px rgba(134,96,34,.16); }
 .academy-home .btn-ghost { background:transparent; border:1px solid #b9b3a3; }
 .academy-home .visual { position:relative; isolation:isolate; display:grid; place-items:center; min-width:0; height:556px; }
-.academy-home .halo { position:absolute; inset:7%; border-radius:50%; background:radial-gradient(circle,rgba(228,205,145,.34),transparent 70%); z-index:-2; }
-.academy-home .orbit { position:absolute; width:94%; aspect-ratio:1; border:1px solid rgba(190,143,51,.23); border-radius:50%; z-index:-1; display:block; pointer-events:none; }
-.academy-home .o2 { width:79%; border-color:rgba(190,143,51,.13); }
-.academy-home .orbit i { position:absolute; display:block; width:18px; height:18px; color:#c39740; }
+.academy-home .halo { position:absolute; inset:7%; border-radius:50%; background:radial-gradient(circle,rgba(190,155,81,.17),transparent 70%); z-index:-2; }
+.academy-home .orbit { position:absolute; width:94%; aspect-ratio:1; border:1px solid rgba(164,122,49,.22); border-radius:50%; z-index:-1; display:block; pointer-events:none; }
+.academy-home .o2 { width:79%; border-color:rgba(164,122,49,.12); }
+.academy-home .orbit i { position:absolute; display:block; width:18px; height:18px; color:#b68a3b; }
 .academy-home .spark-mark { width:20px; height:20px; display:block; flex-shrink:0; }
 .academy-home .orbit .spark-mark { width:100%; height:100%; }
-.academy-home .academy-card { position:relative; width:72%; max-width:380px; padding:26px 24px; border:1px solid #e4d3ad; border-radius:var(--r-lg); background:linear-gradient(160deg,#fffefa 60%,#fff9ec); box-shadow:0 20px 48px rgba(157,112,27,.09),inset 0 1px 0 #fff; text-align:center; }
+.academy-home .academy-card { position:relative; width:72%; max-width:380px; padding:26px 24px; border:1px solid #dfd1b7; border-radius:var(--r-lg); background:linear-gradient(160deg,#fffefb 60%,#fbf6ec); box-shadow:0 20px 48px rgba(110,83,38,.08),inset 0 1px 0 #fff; text-align:center; }
 .academy-home .hero-logo { width:76px; height:84px; object-fit:contain; margin:0 auto 14px; display:block; }
 .academy-home .academy-card small { display:block; color:var(--gold); font-size:13px; font-weight:600; letter-spacing:.18em; }
 .academy-home .academy-card h3 { font-size:28px; font-weight:600; margin:10px 0 14px; letter-spacing:-.02em; }
 .academy-home .academy-card p { font-size:14px; line-height:1.85; max-width:100%; margin:auto; text-wrap:balance; }
 .academy-home .mini-path { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
 .academy-home .mini-step { font-size:12px; color:var(--muted); }
-.academy-home .mini-step b { display:grid; place-items:center; height:32px; width:32px; margin:0 auto 6px; background:linear-gradient(145deg,#fff5d9,#efcf87); border:1px solid #e9cd8e; border-radius:10px; color:#7d5a18; font-family:Georgia,serif; font-size:16px; font-weight:500; }
-.academy-home .float { position:absolute; display:flex; align-items:center; gap:9px; padding:11px 14px; background:#fffdf9; border:1px solid var(--line); border-radius:12px; font-size:13px; font-weight:600; box-shadow:0 8px 24px #342f2010; }
+.academy-home .mini-step b { display:grid; place-items:center; height:32px; width:32px; margin:0 auto 6px; background:linear-gradient(145deg,#fbf4e4,#e8cf9a); border:1px solid #dec58f; border-radius:10px; color:#74551e; font-family:Georgia,serif; font-size:16px; font-weight:500; }
+.academy-home .float { position:absolute; display:flex; align-items:center; gap:9px; padding:11px 14px; background:#fffefb; border:1px solid var(--line); border-radius:12px; font-size:13px; font-weight:600; box-shadow:0 8px 24px #342f2010; }
 .academy-home .f1 { top:7%; left:5%; }.academy-home .f2 { top:18%; right:0; }
 .academy-home .f3 { bottom:15%; left:0; }.academy-home .f4 { bottom:6%; right:5%; }
 .academy-home :is(.section,.belief-section) { padding:96px 0; }
 .academy-home .section-head { display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:end; margin-bottom:40px; }
 .academy-home .section-head h2 { margin-bottom:0; }
 .academy-home .section-head p { font-size:16px; max-width:440px; }
-.academy-home .belief-section { border-block:1px solid var(--line); background:linear-gradient(180deg,#fffaf0,#fbf0da); }
+.academy-home .belief-section { border-block:1px solid var(--line); background:linear-gradient(180deg,#fdf9f1,#f6eee0); }
 .academy-home .belief-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; align-items:center; }
 .academy-home .belief-quote { padding-left:20px; border-left:2px solid #b29a65; margin-top:24px; font-size:17px; }
 .academy-home :is(.belief-cards,.closed-loop,.case-grid) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-.academy-home :is(.belief-card,.loop-card,.growth-step,.panel,.case,.why-card,.quote-panel) { padding:30px; border:1px solid var(--line); border-radius:var(--r-lg); background:#fffdf9; }
+.academy-home :is(.belief-card,.loop-card,.growth-step,.panel,.case,.why-card,.quote-panel) { padding:30px; border:1px solid var(--line); border-radius:var(--r-lg); background:#fffefb; }
 .academy-home .belief-card { padding:24px; }
-.academy-home :is(.belief-card b,.loop-icon,.course-no) { display:grid; place-items:center; width:48px; height:48px; border-radius:12px; background:linear-gradient(145deg,#fff4d5,#f1d598); color:var(--gold); font-size:20px; font-weight:500; }
+.academy-home :is(.belief-card b,.loop-icon,.course-no) { display:grid; place-items:center; width:48px; height:48px; border-radius:12px; background:linear-gradient(145deg,#faf2e2,#e8d1a2); color:var(--gold); font-size:20px; font-weight:500; }
 .academy-home .belief-card b { font-family:"Songti SC",SimSun,serif; font-size:26px; }
 .academy-home .belief-card h3 { margin:30px 0 12px; }
 .academy-home :is(.belief-card,.loop-card,.growth-step,.case) p { font-size:15px; line-height:1.9; }
-.academy-home .dark { background:#15140f; color:#faf8f1; }
+.academy-home .dark { background:#191712; color:#faf8f1; }
 .academy-home .dark :is(p,.compare-row span) { color:#cec9bf; }
 .academy-home .dark .eyebrow { color:#ccb681; }
 .academy-home .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
@@ -204,8 +204,8 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .compare-row b { color:#ccb681; font-family:Georgia,serif; font-size:20px; font-weight:400; }
 .academy-home .compare-row strong { display:block; font-weight:600; }
 .academy-home .compare-row span { font-size:14px; }
-.academy-home .quote-panel { min-height:100%; padding:42px 48px; display:grid; grid-template-rows:auto 1fr auto; gap:28px; background:linear-gradient(145deg,#fff5df,#f0d796); color:var(--ink); border:0; }
-.academy-home .dark .quote-panel p.big { align-self:center; margin:0; font-size:clamp(23px,2vw,30px); line-height:1.9; color:#30281c; font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; font-weight:500; letter-spacing:.01em; }
+.academy-home .quote-panel { min-height:100%; padding:42px 48px; display:grid; grid-template-rows:auto 1fr auto; gap:28px; background:linear-gradient(145deg,#f7efdf,#ead7ad); color:var(--ink); border:1px solid rgba(167,123,50,.16); }
+.academy-home .dark .quote-panel p.big { align-self:center; justify-self:center; max-width:590px; margin:0; font-size:clamp(23px,2vw,30px); line-height:1.9; color:#30291e; font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; font-weight:500; letter-spacing:.01em; text-align:center; }
 .academy-home .quote-panel :is(small,span) { font-size:13px; color:#726347; }
 .academy-home .loop-card h3 { margin:28px 0 12px; }
 .academy-home .loop-card ul { list-style:none; padding:20px 0 0; border-top:1px solid var(--line); font-size:14px; color:var(--muted); }
