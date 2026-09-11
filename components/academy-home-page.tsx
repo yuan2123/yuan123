@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M14 1C20 11 15 18 20 27C17 31 7 31 4 27C8 22 10 16 10 10C12 15 11 19 12 21C16 14 16 7 14 1Z" fill="currentColor"/><path d="m13 18 1.2 4.8L18 24l-3.8 1.2L13 30l-1.2-4.8L8 24l3.8-1.2L13 18Z" fill="#fffaf0"/></svg>`;
+const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1C13.8 8.2 15.8 10.2 23 12C15.8 13.8 13.8 15.8 12 23C10.2 15.8 8.2 13.8 1 12C8.2 10.2 10.2 8.2 12 1Z" fill="currentColor"/></svg>`;
 
 const HOME_MARKUP = `
 <header class="nav">
@@ -43,9 +43,8 @@ const HOME_MARKUP = `
 </div>
 <div class="visual reveal">
 <div aria-hidden="true" class="halo"></div>
-<div aria-hidden="true" class="orbit o1"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
-<div aria-hidden="true" class="orbit o2"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
-<div aria-hidden="true" class="orbit o3"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
+<div aria-hidden="true" class="orbit o1"><i>${SPARK_MARKUP}</i></div>
+<div aria-hidden="true" class="orbit o2"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
 <div class="academy-card">
 <img alt="星火财商学院" class="hero-logo" src="/images/xhcs-logo-gold.png"/>
 <small>学院成长地图</small>
@@ -56,8 +55,8 @@ const HOME_MARKUP = `
 <div class="mini-step"><b>3</b>医疗</div><div class="mini-step"><b>4</b>成长</div><div class="mini-step"><b>5</b>陪伴</div>
 </div>
 </div>
-<div class="float f1">${SPARK_MARKUP}财商学院</div><div class="float f2">${SPARK_MARKUP}家庭保障</div>
-<div class="float f3">${SPARK_MARKUP}医疗资源</div><div class="float f4">${SPARK_MARKUP}长期陪伴</div>
+<div class="float f1">财商学院</div><div class="float f2">家庭保障</div>
+<div class="float f3">医疗资源</div><div class="float f4">长期陪伴</div>
 </div>
 </div>
 </section>
