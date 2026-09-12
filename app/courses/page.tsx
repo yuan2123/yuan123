@@ -1,4 +1,5 @@
 import { PageHero, SectionHeading } from "@/components/ui";
+import Image from "next/image";
 import Link from "next/link";
 import { coursePrograms, courses } from "@/data/site";
 
@@ -16,7 +17,7 @@ export default function CoursesPage() {
     <PageHero eyebrow="CURRICULUM" title="从成人到少儿，建立可实践的财商能力" desc="课程围绕真实家庭情境展开，通过主题授课、财富流沙盘、案例讨论和复盘，把财富知识转化为判断与行动。"/>
     <section className="section"><div className="container">
       <SectionHeading eyebrow="NOW ENROLLING" title="当前课程" desc="成人与少儿课程均开放招生咨询。具体时间、地点与费用将在沟通后根据当期安排确认。"/>
-      <div className="program-grid">{coursePrograms.map((program)=><article className="program-card" key={program.name}><div className="program-card-head"><span>{program.code}</span><small>{program.status}</small></div><h2>{program.name}</h2><p className="program-audience">{program.audience}</p><p>{program.summary}</p><div className="program-format">{program.format}</div><ul>{program.highlights.map((item)=><li key={item}>{item}</li>)}</ul><Link className="button button-sm" href="/register">提交课程咨询</Link></article>)}</div>
+      <div className="program-grid">{coursePrograms.map((program,index)=><article className={`program-card program-card-${index+1}`} key={program.name}><div className="program-card-head"><span>{program.code}</span><small>{program.status}</small></div>{"image" in program && program.image && <div className="program-media"><Image src={program.image} alt="财富流沙盘课程教具示意" fill sizes="(max-width: 780px) 100vw, 33vw" /></div>}<span className="program-series">{program.series}</span><h2>{program.name}</h2><p className="program-audience">{program.audience}</p><p>{program.summary}</p><div className="program-format">{program.format}</div><ul>{program.highlights.map((item)=><li key={item}>{item}</li>)}</ul><Link className="button button-sm" href="/register">提交课程咨询</Link></article>)}</div>
     </div></section>
     <section className="section module-system"><div className="container module-system-layout">
       <header className="module-system-intro"><span className="eyebrow">8 CORE MODULES</span><strong aria-hidden="true">08</strong><h2>一套由认知走向行动的课程地图</h2><p>八大模块并非八门彼此割裂的课，而是沿着“看见—守住—增长—延续”的路径，根据成人、少儿与家庭需求灵活组合。</p></header>

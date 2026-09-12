@@ -469,3 +469,33 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
   .module-system-intro{display:block}.module-system-intro>strong{font-size:92px}.module-system-intro h2{margin-top:24px}
   .module-chapter{grid-template-columns:1fr}.module-chapter-head{padding:30px 0 16px}.module-chapter-head h3{margin-top:18px}.module-entry{margin:0 0 12px;padding:22px}.module-entry>p{min-height:0}.module-chapter{padding-bottom:18px}
 }
+
+/* Five-course portfolio: one featured progression, then a balanced three-card row. */
+.program-grid{grid-template-columns:repeat(12,minmax(0,1fr));align-items:stretch}
+.program-card{min-height:500px;padding:36px}
+.program-card-1{grid-column:span 7;background:linear-gradient(145deg,#fffdf7 0%,#f3e2b7 100%);border-color:#cfad67}
+.program-card-2{grid-column:span 5}
+.program-card-3,.program-card-4,.program-card-5{grid-column:span 4}
+.program-card-6{grid-column:1/-1;min-height:440px;background:linear-gradient(145deg,#211f1a,#353027);border-color:#4b4336;color:#fff}
+.program-series{position:relative;z-index:1;display:inline-flex;align-self:flex-start;margin-top:34px;padding-bottom:7px;border-bottom:1px solid #bd8b31;color:#9a6c20;font-size:12px;font-weight:700;letter-spacing:.13em}
+.program-media{position:relative;z-index:1;height:210px;margin-top:24px;overflow:hidden;border-radius:18px;background:#171611}
+.program-media img{object-fit:cover;transition:transform .55s ease}
+.program-card:hover .program-media img{transform:scale(1.025)}
+.program-media+.program-series{margin-top:24px}
+.program-card h2{margin:12px 0 12px}
+.program-card-6 .program-series{color:#e1be70;border-color:#c99a42}
+.program-card-6>p,.program-card-6 .program-audience{color:#c4bdb0}
+.program-card-6 .program-format{background:rgba(255,255,255,.06);color:#ddd4c5}
+.program-card-6 ul{color:#c9c1b4}
+.program-card-6 .program-card-head small{color:#e6c67e;border-color:rgba(230,198,126,.28);background:rgba(255,255,255,.05)}
+.program-card-6 .button{background:#c28d2d;color:#fff}
+@media(max-width:1100px){
+  .program-card-1,.program-card-2{grid-column:span 6}
+  .program-card-3,.program-card-4{grid-column:span 6}
+  .program-card-5,.program-card-6{grid-column:span 6;min-height:500px}
+}
+@media(max-width:780px){
+  .program-grid{grid-template-columns:1fr}.program-card-1,.program-card-2,.program-card-3,.program-card-4,.program-card-5,.program-card-6{grid-column:1;min-height:0;padding:28px}
+  .program-series{margin-top:26px}
+  .program-media{height:190px}
+}
