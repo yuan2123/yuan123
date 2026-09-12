@@ -274,18 +274,8 @@ export function AcademyHomePage() {
         star.setAttribute("aria-expanded", "false");
       });
     };
-    const onStarClick = (event: Event) => {
-      event.stopPropagation();
-      const star = event.currentTarget as HTMLButtonElement;
+    const placeJourneyCard = (star: HTMLButtonElement) => {
       const orbit = star.closest<HTMLElement>(".journey-orbit");
-      const willOpen = !orbit?.classList.contains("active");
-      closeJourneyCards(star);
-      if (!orbit || !willOpen) {
-        orbit?.classList.remove("active");
-        star.setAttribute("aria-expanded", "false");
-        return;
-      }
-
       const visualBox = visual?.getBoundingClientRect();
       const starBox = star.getBoundingClientRect();
       if (visualBox) {
@@ -293,18 +283,46 @@ export function AcademyHomePage() {
         const isTop = starBox.top + starBox.height / 2 < visualBox.top + visualBox.height / 2;
         star.dataset.cardSide = `${isTop ? "bottom" : "top"}-${isLeft ? "right" : "left"}`;
       }
+      return orbit;
+    };
+    const onStarEnter = (event: Event) => {
+      const star = event.currentTarget as HTMLButtonElement;
+      placeJourneyCard(star);
+    };
+    const onStarClick = (event: Event) => {
+      const isTouchInteraction = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+      const isKeyboardInteraction = event instanceof MouseEvent && event.detail === 0;
+      if (!isTouchInteraction && !isKeyboardInteraction) return;
+      event.stopPropagation();
+      const star = event.currentTarget as HTMLButtonElement;
+      const orbit = placeJourneyCard(star);
+      const willOpen = !orbit?.classList.contains("active");
+      closeJourneyCards(star);
+      if (!orbit || !willOpen) {
+        orbit?.classList.remove("active");
+        star.setAttribute("aria-expanded", "false");
+        return;
+      }
       orbit.classList.add("active");
       star.setAttribute("aria-expanded", "true");
     };
     const onOutsideClick = () => closeJourneyCards();
-    stars.forEach((star) => star.addEventListener("click", onStarClick));
+    stars.forEach((star) => {
+      star.addEventListener("mouseenter", onStarEnter);
+      star.addEventListener("focus", onStarEnter);
+      star.addEventListener("click", onStarClick);
+    });
     document.addEventListener("click", onOutsideClick);
 
     return () => {
       observer.disconnect();
       toggle?.removeEventListener("click", onToggle);
       menu?.querySelectorAll("a").forEach((link) => link.removeEventListener("click", onMenuClick));
-      stars.forEach((star) => star.removeEventListener("click", onStarClick));
+      stars.forEach((star) => {
+        star.removeEventListener("mouseenter", onStarEnter);
+        star.removeEventListener("focus", onStarEnter);
+        star.removeEventListener("click", onStarClick);
+      });
       document.removeEventListener("click", onOutsideClick);
     };
   }, []);
