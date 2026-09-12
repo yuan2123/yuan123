@@ -42,7 +42,9 @@ export default function AboutPage() {
     <section className="section about-purpose">
       <div className="container about-purpose-grid">
         <div className="about-purpose-copy">
-          <SectionHeading eyebrow="OUR PURPOSE" title="让财富守护家庭，也让选择更从容。" desc="我们从家庭真实目标出发，把财商教育、风险管理和长期规划放在同一套框架里，陪伴客户理解财富、管理责任并持续复盘。" />
+          <span className="eyebrow">OUR PURPOSE</span>
+          <h2>让财富守护家庭<br /><em>也让每一次选择更从容</em></h2>
+          <p>我们从家庭真实目标出发，把财商教育、风险管理和长期规划放在同一套框架里，陪伴客户理解财富、管理责任并持续复盘。</p>
           <blockquote>先看见家庭真正需要什么，再讨论工具如何服务目标。</blockquote>
         </div>
         <div className="about-service-map">
