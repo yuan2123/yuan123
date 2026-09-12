@@ -81,7 +81,7 @@ export const coursePrograms = [
     audience: "面向企业、机构、社群与合作渠道，根据人群和场景定制课程内容",
     format: "需求访谈 · 主题设计 · 课程交付 · 复盘优化",
     status: "开放合作咨询",
-    image: "/images/courses/custom-financial-course.webp",
+    image: "/images/courses/custom-financial-course-v2.webp",
     summary: "围绕财商教育、家庭风险、现金流、资产配置和财富传承等主题，根据受众基础、活动目标与交付场景组合适合的课程模块。",
     highlights: ["匹配企业、社群与客户活动场景", "按受众基础组合八大核心模块", "支持讲座、工作坊与沙盘体验", "具体方案在需求沟通后确认"],
   },

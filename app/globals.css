@@ -143,13 +143,17 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .brand-logo { width:100%; height:100%; object-fit:contain; }
 .academy-home .brand-text small { display:block; font-size:9px; font-weight:500; letter-spacing:.13em; color:var(--muted); }
 .academy-home .menu { display:flex; align-items:center; gap:25px; font-size:14px; }
-.academy-home .menu a { transition:color .22s; }
+.academy-home .menu a { transition:color .22s; position:relative; }
 .academy-home .menu a:hover { color:var(--gold); }
+.academy-home .menu .menu-course-link { color:#ae7c27; font-weight:650; }
+.academy-home .menu .menu-course-link:after { content:""; position:absolute; left:50%; bottom:-12px; width:20px; height:2px; border-radius:2px; background:#bd8b30; transform:translateX(-50%); }
 .academy-home :is(.nav-cta,.academy-mobile-cta) { background:var(--ink); color:#fff!important; padding:10px 20px; border-radius:10px; }
 .academy-home .mobile-toggle { display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--ink); font-size:24px; }
 .academy-home .academy-mobile-menu { display:none; }
-.academy-home .hero { min-height:790px; padding:142px 0 72px; position:relative; background:radial-gradient(ellipse at 84% 30%,rgba(205,163,76,.14),transparent 42%),linear-gradient(120deg,#fffefb 0%,#fbf7ee 66%,#f7eedc 100%); overflow:visible; }
-.academy-home .hero:before { display:none; }
+.academy-home .hero { min-height:740px; padding:142px 0 46px; position:relative; background:radial-gradient(circle at 84% 28%,rgba(224,185,94,.28),transparent 35%),linear-gradient(120deg,#fffdf8 0%,#fbf4e5 58%,#f1dda9 100%); overflow:hidden; }
+.academy-home .hero:before { content:""; position:absolute; inset:0; display:block; pointer-events:none; opacity:.24; background-image:linear-gradient(rgba(181,138,53,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(181,138,53,.12) 1px,transparent 1px); background-size:56px 56px; mask-image:linear-gradient(90deg,rgba(0,0,0,.55),transparent 55%); }
+.academy-home .hero:after { content:""; position:absolute; z-index:0; inset:auto 0 0; height:150px; pointer-events:none; background:linear-gradient(180deg,transparent,rgba(242,221,169,.72)); }
+.academy-home .hero>.shell { position:relative; z-index:1; }
 .academy-home .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
 .academy-home .hero h1 { font-size:clamp(38px,4.1vw,58px); line-height:1.45; letter-spacing:-.04em; font-weight:650; margin:22px 0 26px; }
 .academy-home .hero-line { display:block; white-space:nowrap; }
@@ -183,7 +187,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .section-head { display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:end; margin-bottom:40px; }
 .academy-home .section-head h2 { margin-bottom:0; }
 .academy-home .section-head p { font-size:16px; max-width:440px; }
-.academy-home .belief-section { border-block:1px solid var(--line); background:linear-gradient(180deg,#fdf9f1,#f6eee0); }
+.academy-home .belief-section { position:relative; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#f1dda9 0%,#f7ecd5 18%,#f8f1e6 55%,#f6eee0 100%); }
 .academy-home .belief-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; align-items:center; }
 .academy-home .belief-quote { padding-left:20px; border-left:2px solid #b29a65; margin-top:24px; font-size:17px; }
 .academy-home :is(.belief-cards,.closed-loop,.case-grid) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }

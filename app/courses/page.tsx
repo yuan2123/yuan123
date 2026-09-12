@@ -14,7 +14,7 @@ const moduleChapters = [
 
 export default function CoursesPage() {
   return <>
-    <PageHero eyebrow="CURRICULUM" title="从成人到少儿，建立可实践的财商能力" desc="课程围绕真实家庭情境展开，通过主题授课、财富流沙盘、案例讨论和复盘，把财富知识转化为判断与行动。"/>
+    <PageHero eyebrow="CURRICULUM" title="从少儿到成人，建立可实践的财商能力" desc="课程围绕真实家庭情境展开，通过主题授课、财富流沙盘、案例讨论和复盘，把财富知识转化为判断与行动。"/>
     <section className="section"><div className="container">
       <SectionHeading eyebrow="NOW ENROLLING" title="当前课程" desc="成人与少儿课程均开放招生咨询。具体时间、地点与费用将在沟通后根据当期安排确认。"/>
       <div className="program-grid">{coursePrograms.map((program,index)=><article className={`program-card program-card-${index+1}`} key={program.name}><div className="program-card-head"><span>{program.code}</span><small>{program.status}</small></div>{program.image && <div className="program-media"><Image src={program.image} alt={`${program.name}课程主题视觉`} fill sizes="(max-width: 780px) 100vw, 50vw" /></div>}<span className="program-series">{program.series}</span><h2>{program.name}</h2><p className="program-audience">{program.audience}</p><p>{program.summary}</p><div className="program-format">{program.format}</div><ul>{program.highlights.map((item)=><li key={item}>{item}</li>)}</ul><Link className="button button-sm" href="/register">提交课程咨询</Link></article>)}</div>
