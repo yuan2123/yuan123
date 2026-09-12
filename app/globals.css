@@ -318,3 +318,58 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 @media(prefers-reduced-motion:reduce) {
   .academy-home *, .academy-home *:before, .academy-home *:after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
 }
+
+/* Knowledge article details */
+.article-card-link{display:block;height:100%}
+.knowledge-article{background:#fcfaf5;color:#1b1a16}
+.article-hero{padding:86px 0 76px;background:radial-gradient(circle at 83% 18%,rgba(181,138,53,.16),transparent 30%),linear-gradient(145deg,#fffdf9,#f3ecde);border-bottom:1px solid #e5dbc8}
+.article-hero-inner{max-width:980px}
+.article-breadcrumb{display:flex;align-items:center;gap:9px;margin-bottom:44px;color:#887e6d;font-size:13px}
+.article-breadcrumb a{color:#9a6e20}
+.article-kicker{color:#a57725;font-size:12px;font-weight:700;letter-spacing:.16em}
+.article-hero h1{max-width:900px;margin:18px 0 20px;font-size:clamp(38px,5vw,62px);line-height:1.25;letter-spacing:-.045em;font-weight:650}
+.article-hero>div>p{max-width:760px;margin:0;color:#625b50;font-size:18px;line-height:1.9}
+.article-hero-meta{justify-content:flex-start;gap:26px;margin-top:30px;font-size:12px}
+.article-layout{display:grid;grid-template-columns:minmax(0,760px) 270px;justify-content:center;gap:70px;padding-top:76px;padding-bottom:108px;align-items:start}
+.article-content{min-width:0}
+.article-lead{margin:0 0 62px;padding:25px 30px;border-left:3px solid #aa7c2c;background:#f7f0e2;color:#373229;font-size:18px;font-weight:500;line-height:2}
+.article-content>section:not(.article-checklist):not(.article-sources){margin-top:58px}
+.article-content h2{margin:0 0 22px;font-size:30px;line-height:1.45;letter-spacing:-.025em}
+.article-content section>p{margin:0 0 20px;color:#554f45;font-size:17px;line-height:2.05}
+.article-checklist{margin:64px 0 42px;padding:34px 38px;border:1px solid #dfd0b4;border-radius:22px;background:linear-gradient(145deg,#fffaf0,#f2e3c4)}
+.article-checklist>span{color:#9a6e20;font-size:11px;font-weight:700;letter-spacing:.15em}
+.article-checklist h2{margin:10px 0 24px;font-size:26px}
+.article-checklist ol{margin:0;padding:0;list-style:none;counter-reset:article-list}
+.article-checklist li{counter-increment:article-list;display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px;padding:13px 0;border-top:1px solid rgba(154,110,32,.18);color:#494238;font-size:15px}
+.article-checklist li:before{content:counter(article-list,decimal-leading-zero);color:#9a6e20;font:14px Georgia,serif}
+.article-disclaimer{margin:0;padding:18px 20px;border-radius:12px;background:#f1eee7;color:#746d62;font-size:12px;line-height:1.8}
+.article-sources{margin-top:38px;padding-top:28px;border-top:1px solid #e1d8c8}
+.article-sources h2{font-size:18px;margin-bottom:12px}
+.article-sources ul{margin:0;padding-left:20px;color:#70685c;font-size:13px}
+.article-sources li{margin:8px 0}
+.article-sources a{text-decoration:underline;text-decoration-color:#c9ad78;text-underline-offset:4px}
+.article-back{display:inline-block;margin-top:46px;color:#9a6e20;font-size:14px;font-weight:700}
+.article-aside{position:sticky;top:112px;border:1px solid #ddd0b8;border-radius:20px;overflow:hidden;background:#fff}
+.article-aside>div{padding:26px;background:#1b1915;color:#fff}
+.article-aside span{color:#d2ad62;font-size:11px;letter-spacing:.14em}
+.article-aside p{margin:22px 0 0;color:#c4beb3;font-size:14px;line-height:1.9}
+.article-aside>a{display:block;padding:18px 26px;color:#8f651c;font-size:13px;font-weight:700}
+@media(max-width:900px){
+  .article-layout{grid-template-columns:minmax(0,760px);gap:40px}
+  .article-aside{position:static;display:grid;grid-template-columns:1fr auto;align-items:stretch}
+  .article-aside>a{display:grid;place-items:center;min-width:150px}
+}
+@media(max-width:600px){
+  .article-hero{padding:58px 0 54px}
+  .article-breadcrumb{margin-bottom:30px}
+  .article-hero h1{font-size:36px;line-height:1.35}
+  .article-hero>div>p{font-size:16px}
+  .article-layout{padding-top:48px;padding-bottom:72px}
+  .article-lead{margin-bottom:44px;padding:20px;font-size:16px}
+  .article-content>section:not(.article-checklist):not(.article-sources){margin-top:44px}
+  .article-content h2{font-size:25px}
+  .article-content section>p{font-size:16px;line-height:2}
+  .article-checklist{margin-top:48px;padding:26px 20px}
+  .article-aside{grid-template-columns:1fr}
+  .article-aside>a{place-items:start;padding:17px 26px}
+}
