@@ -29,12 +29,11 @@ export default function AboutPage() {
         <div className="about-cycle" aria-label="创富、保富、传富三大财富生命周期">
           <div className="about-cycle-ring ring-one" aria-hidden="true" />
           <div className="about-cycle-ring ring-two" aria-hidden="true" />
-          <span className="cycle-spark spark-one" aria-hidden="true">✦</span>
           <span className="cycle-spark spark-two" aria-hidden="true">✦</span>
           <div className="cycle-core"><small>SPARK WEALTH</small><strong>财富与人生<br />共同规划</strong><span>星火财商</span></div>
-          <article className="cycle-node node-create"><b>01</b><div><small>CREATE</small><strong>创富防风险</strong></div></article>
-          <article className="cycle-node node-preserve"><b>02</b><div><small>PRESERVE</small><strong>保富稳增值</strong></div></article>
-          <article className="cycle-node node-legacy"><b>03</b><div><small>PASS ON</small><strong>传富做保全</strong></div></article>
+          <div className="cycle-orbit orbit-create"><article className="cycle-node"><b>01</b><div><small>CREATE</small><strong>创富防风险</strong></div></article></div>
+          <div className="cycle-orbit orbit-preserve"><article className="cycle-node"><b>02</b><div><small>PRESERVE</small><strong>保富稳增值</strong></div></article></div>
+          <div className="cycle-orbit orbit-legacy"><article className="cycle-node"><b>03</b><div><small>PASS ON</small><strong>传富做保全</strong></div></article></div>
         </div>
       </div>
     </section>
