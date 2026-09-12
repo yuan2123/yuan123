@@ -482,6 +482,8 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .program-media img{object-fit:cover;transition:transform .55s ease}
 .program-card:hover .program-media img{transform:scale(1.025)}
 .program-media+.program-series{margin-top:24px}
+.learning-experience .section-heading{max-width:none}
+.learning-experience .section-heading h2{white-space:nowrap;font-size:clamp(34px,3.55vw,52px);letter-spacing:-.055em}
 .program-card h2{margin:12px 0 12px}
 .program-card-6 .program-series{color:#e1be70;border-color:#c99a42}
 .program-card-6>p,.program-card-6 .program-audience{color:#c4bdb0}
@@ -498,4 +500,5 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
   .program-grid{grid-template-columns:1fr}.program-card-1,.program-card-2,.program-card-3,.program-card-4,.program-card-5,.program-card-6{grid-column:1;min-height:0;padding:28px}
   .program-series{margin-top:26px}
   .program-media{height:190px}
+  .learning-experience .section-heading h2{white-space:normal}
 }
