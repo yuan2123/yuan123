@@ -43,20 +43,15 @@ const HOME_MARKUP = `
 <a class="btn btn-ghost" href="/register">提交课程咨询</a>
 </div>
 </div>
-<div class="visual reveal">
+<div class="visual reveal logo-journey">
 <div aria-hidden="true" class="path-glow"></div>
-<svg class="wealth-light-path" viewBox="0 0 560 520" preserveAspectRatio="none" aria-hidden="true">
-<defs><linearGradient id="wealthPathGold" x1="54" y1="448" x2="516" y2="62" gradientUnits="userSpaceOnUse"><stop stop-color="#8b5f18" stop-opacity=".16"/><stop offset=".48" stop-color="#c99a3d" stop-opacity=".72"/><stop offset="1" stop-color="#efd990" stop-opacity=".18"/></linearGradient></defs>
-<path class="wealth-path-shadow" d="M54 448C128 414 124 348 204 316C294 280 307 224 382 193C451 164 467 105 516 62"/>
-<path class="wealth-path-line" d="M54 448C128 414 124 348 204 316C294 280 307 224 382 193C451 164 467 105 516 62"/>
-</svg>
 <div class="spark-origin" aria-hidden="true">
 <span class="origin-logo-crop"><img src="/images/xhcs-logo-gold.png" alt=""/></span>
-<small>一束星火</small><b>从认知出发</b>
+<span class="flame-light"><img src="/images/xhcs-logo-gold.png" alt=""/></span>
 </div>
 <div class="journey-message">
-<small>FAMILY WEALTH JOURNEY</small>
-<h3>从认知，<br/>到长期陪伴</h3>
+<small>点燃财富 · 照亮生活</small>
+<h3>从认知，到长期陪伴</h3>
 <p>让知识进入家庭，也让每一次选择更从容。</p>
 </div>
 <div class="journey-orbit journey-node journey-node-1">
@@ -191,12 +186,15 @@ export function AcademyHomePage() {
 
     const visual = root.querySelector<HTMLElement>(".visual");
     const stars = Array.from(root.querySelectorAll<HTMLButtonElement>(".journey-star"));
+    const nodes = stars.map((star, i) => ({ star, orbit: star.closest<HTMLElement>(".journey-orbit"), angle: [2.8, .5, 4.4, 1.8, 5.4][i], speed: [ .19, .16, .21, -.17, -.14 ][i] }));
+    const syncFlame = () => visual?.classList.toggle("flame-lit", nodes.some(({ orbit }) => orbit?.classList.contains("active")));
     const closeJourneyCards = (except?: HTMLButtonElement) => {
       stars.forEach((star) => {
         if (star === except) return;
         star.closest(".journey-orbit")?.classList.remove("active");
         star.setAttribute("aria-expanded", "false");
       });
+      syncFlame();
     };
     const placeJourneyCard = (star: HTMLButtonElement) => {
       const orbit = star.closest<HTMLElement>(".journey-orbit");
@@ -206,12 +204,33 @@ export function AcademyHomePage() {
         const isLeft = starBox.left + starBox.width / 2 < visualBox.left + visualBox.width / 2;
         const isTop = starBox.top + starBox.height / 2 < visualBox.top + visualBox.height / 2;
         star.dataset.cardSide = `${isTop ? "bottom" : "top"}-${isLeft ? "right" : "left"}`;
+        const card = star.querySelector<HTMLElement>(".journey-card");
+        if (card) {
+          const cardWidth = card.offsetWidth;
+          const desired = isLeft ? starBox.right - visualBox.left : starBox.left - visualBox.left - cardWidth;
+          const left = Math.max(8, Math.min(desired, visualBox.width - cardWidth - 8));
+          card.style.left = `${left + visualBox.left - starBox.left}px`;
+          card.style.right = "auto";
+          card.style.top = isTop ? "46px" : "auto";
+          card.style.bottom = isTop ? "auto" : "46px";
+        }
       }
       return orbit;
     };
     const onStarEnter = (event: Event) => {
+      if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
       const star = event.currentTarget as HTMLButtonElement;
-      placeJourneyCard(star);
+      closeJourneyCards(star);
+      placeJourneyCard(star)?.classList.add("active");
+      star.setAttribute("aria-expanded", "true");
+      syncFlame();
+    };
+    const onStarLeave = (event: Event) => {
+      if (window.matchMedia("(hover: none)").matches) return;
+      const star = event.currentTarget as HTMLButtonElement;
+      star.closest(".journey-orbit")?.classList.remove("active");
+      star.setAttribute("aria-expanded", "false");
+      syncFlame();
     };
     const onStarClick = (event: Event) => {
       const isTouchInteraction = window.matchMedia("(hover: none), (pointer: coarse)").matches;
@@ -225,26 +244,57 @@ export function AcademyHomePage() {
       if (!orbit || !willOpen) {
         orbit?.classList.remove("active");
         star.setAttribute("aria-expanded", "false");
+        syncFlame();
         return;
       }
       orbit.classList.add("active");
       star.setAttribute("aria-expanded", "true");
+      syncFlame();
     };
     const onOutsideClick = () => closeJourneyCards();
     stars.forEach((star) => {
       star.addEventListener("mouseenter", onStarEnter);
+      star.addEventListener("mouseleave", onStarLeave);
       star.addEventListener("focus", onStarEnter);
+      star.addEventListener("blur", onStarLeave);
       star.addEventListener("click", onStarClick);
     });
     document.addEventListener("click", onOutsideClick);
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let previous = 0;
+    const animate = (time: number) => {
+      const dt = previous ? Math.min((time - previous) / 1000, .05) : 0;
+      previous = time;
+      const logo = visual?.querySelector<HTMLElement>(".spark-origin");
+      if (visual && logo) {
+        const width = logo.offsetWidth;
+        nodes.forEach((node, i) => {
+          if (!motion.matches && !node.orbit?.classList.contains("active")) node.angle += dt * node.speed;
+          // These ellipses trace the original logo's crossed bands, in image coordinates.
+          const tilt = (i < 3 ? -19 : 19) * Math.PI / 180;
+          const x = .48 * Math.cos(node.angle);
+          const y = .13 * Math.sin(node.angle);
+          if (node.orbit) {
+            node.orbit.style.left = `${logo.offsetLeft + width * (.5 + x * Math.cos(tilt) - y * Math.sin(tilt))}px`;
+            node.orbit.style.top = `${logo.offsetTop + width * (.58 + x * Math.sin(tilt) + y * Math.cos(tilt))}px`;
+          }
+        });
+      }
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
 
     return () => {
       observer.disconnect();
+      cancelAnimationFrame(frame);
       toggle?.removeEventListener("click", onToggle);
       menu?.querySelectorAll("a").forEach((link) => link.removeEventListener("click", onMenuClick));
       stars.forEach((star) => {
         star.removeEventListener("mouseenter", onStarEnter);
+        star.removeEventListener("mouseleave", onStarLeave);
         star.removeEventListener("focus", onStarEnter);
+        star.removeEventListener("blur", onStarLeave);
         star.removeEventListener("click", onStarClick);
       });
       document.removeEventListener("click", onOutsideClick);

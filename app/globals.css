@@ -646,6 +646,79 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .standard-list p{color:#a9a194;font-size:12px;line-height:1.7}
 @keyframes wealth-path-flow{to{stroke-dashoffset:-52}}
 @keyframes journey-node-breathe{0%,100%{transform:translateY(0);filter:brightness(.94)}50%{transform:translateY(-4px);filter:brightness(1.08)}}
+/* Original logo, living sparks: only the central flame reacts to interaction. */
+.academy-home .visual.logo-journey{width:100%;max-width:520px;height:auto;aspect-ratio:1/1.12;margin-inline:auto}
+.academy-home .logo-journey .spark-origin{left:5%;top:12px;bottom:auto;width:90%;height:auto;aspect-ratio:520/465;pointer-events:none}
+.academy-home .logo-journey .origin-logo-crop{width:100%;height:100%;margin:0;filter:none}
+.academy-home .logo-journey .origin-logo-crop img,.academy-home .logo-journey .flame-light img{width:100%;left:0;top:0;transform:none}
+.academy-home .logo-journey .flame-light{position:absolute;inset:0;overflow:hidden;opacity:0;clip-path:polygon(53% 7%,59% 25%,58% 47%,61% 65%,40% 65%,48% 37%,49% 24%,51% 38%,55% 27%);filter:brightness(1.35) saturate(1.2);transition:opacity .3s;pointer-events:none}
+.academy-home .logo-journey .flame-light img{position:absolute;height:auto}
+.academy-home .logo-journey.flame-lit .flame-light{opacity:1}
+.academy-home .logo-journey .journey-message{bottom:0;right:0;left:0;width:auto;text-align:center;padding:12px 0 0}
+.academy-home .logo-journey .journey-message:before{display:none}
+.academy-home .logo-journey .journey-message h3{font-size:27px;letter-spacing:-.025em;margin:7px 0}
+.academy-home .logo-journey .journey-node{width:44px;height:44px;aspect-ratio:auto;transform:none;animation:none}
+.academy-home .logo-journey .journey-node.active{z-index:12}
+.academy-home .logo-journey .journey-star{width:44px;height:44px;padding:9px;background:none;border:none;box-shadow:none;backdrop-filter:none;animation:none;transform:none;filter:drop-shadow(0 2px 5px rgba(138,95,22,.2));color:#b8872b}
+.academy-home .logo-journey .journey-star .spark-mark{width:26px;height:26px}
+.academy-home .logo-journey .journey-star em{display:none}
+.academy-home .logo-journey .journey-star:hover,.academy-home .logo-journey .active .journey-star{background:none;box-shadow:none;color:#d4a13a;filter:drop-shadow(0 0 8px rgba(205,153,47,.65))}
+.academy-home .logo-journey .journey-star:focus-visible{outline:2px solid #b8872b;outline-offset:3px}
+.academy-home .logo-journey .journey-card{filter:none;font-style:normal}
+.about-renewed{background:#fffdf8;color:#26231e;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.about-renewed :is(h1,h2,h3){font-family:inherit;letter-spacing:-.025em;font-weight:650}
+.about-renewed h2{font-size:clamp(30px,3.3vw,44px);line-height:1.45;margin:18px 0 24px}
+.about-renewed p{color:#746e63;font-size:16px;line-height:1.95}
+.about-renewed .eyebrow{font-size:11px;letter-spacing:.18em;color:#a17a35}
+.brand-intro{padding:88px 0 70px;background:radial-gradient(ellipse at 85% 40%,#f5e8c8 0,transparent 55%),#fcf8ee}
+.brand-intro-grid{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:70px}
+.brand-intro h1{font-size:clamp(34px,4.4vw,59px);line-height:1.5;margin:22px 0 25px}
+.brand-intro h1 em{font-style:normal;color:#a77b2a}
+.brand-intro p{max-width:630px}
+.brand-signature{display:block;margin-top:28px;font-size:14px;color:#9c762f;letter-spacing:.08em}
+.brand-emblem{display:flex;justify-content:center;align-items:center}
+.brand-emblem img{width:min(100%,290px);height:auto}
+.brand-purpose{padding:85px 0;border-bottom:1px solid #eee5d5}
+.brand-purpose-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:100px}
+.brand-purpose .brand-lead{font-size:23px;line-height:1.65;color:#302b23;margin:0 0 22px}
+.brand-purpose p+p{margin-top:16px}
+.brand-approach{padding:80px 0;background:#f7f2e7}
+.brand-section-heading{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.brand-section-heading>p{font-size:14px}
+.brand-approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:24px}
+.brand-approach-grid article{border-top:1px solid #cfb37b;padding-top:24px}
+.brand-approach-grid article>span{font-size:30px;color:#a77e34}
+.brand-approach-grid h3{font-size:18px;line-height:1.6;margin:20px 0 12px}
+.brand-approach-grid p{font-size:14px}
+.brand-values{padding:80px 0}
+.brand-values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;margin-top:35px}
+.brand-values-grid article{border-left:1px solid #e1d5bf;padding-left:28px}
+.brand-values-grid small{color:#ad8845;font-size:10px;letter-spacing:.15em}
+.brand-values-grid h3{font-size:28px;margin:14px 0}
+.brand-ending{padding:65px 0;background:#24221b;text-align:center}
+.brand-ending h2{color:#fff8e9;font-size:clamp(30px,3.5vw,46px)}
+.brand-ending p{color:#bdb4a2;margin-bottom:25px}
+@media(max-width:900px){.brand-intro-grid{gap:35px}.brand-purpose-grid{gap:45px}.brand-approach-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+ .academy-home .visual.logo-journey{height:auto;aspect-ratio:1/1.13;margin-top:15px}
+ .academy-home .logo-journey .spark-origin{top:0;left:7%;width:86%}
+ .academy-home .logo-journey .journey-message{bottom:4px;padding:0}
+ .academy-home .logo-journey .journey-message h3{font-size:21px}
+ .academy-home .logo-journey .journey-message small{font-size:9px}
+ .academy-home .logo-journey .journey-message p{font-size:12px}
+ .academy-home .logo-journey .journey-node,.academy-home .logo-journey .journey-star{width:44px;height:44px}
+ .academy-home .logo-journey .journey-star .spark-mark{width:24px;height:24px}
+ .academy-home .logo-journey .journey-card{width:150px}
+ .brand-intro{padding:48px 0 42px}.brand-intro-grid,.brand-purpose-grid{grid-template-columns:1fr;gap:28px}
+ .brand-intro h1{font-size:34px;margin:18px 0}.brand-intro p,.about-renewed p{font-size:14px}
+ .brand-emblem img{width:180px}.brand-signature{margin-top:20px}
+ .brand-purpose,.brand-approach,.brand-values{padding:48px 0}
+ .brand-purpose .brand-lead{font-size:20px}.brand-purpose h2{margin-bottom:0}
+ .brand-section-heading{display:block}.brand-approach-grid{gap:26px 20px}
+ .brand-approach-grid h3{font-size:16px;margin-top:12px}.brand-approach-grid p{font-size:12px}
+ .brand-values-grid{grid-template-columns:1fr;gap:24px;margin-top:24px}.brand-values-grid article{padding-left:20px}
+ .brand-values-grid h3{font-size:23px;margin:8px 0}.brand-ending{padding:48px 0}
+}
 @media(max-width:900px){
   .academy-home .hero-grid{grid-template-columns:1fr;gap:22px}.academy-home .hero{padding-top:120px}.academy-home .visual{max-width:620px;height:450px}
   .academy-home .manifesto-head,.academy-home .trust-cta-grid{grid-template-columns:1fr;gap:30px}.academy-home .manifesto-grid{margin-top:35px}

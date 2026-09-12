@@ -1,75 +1,28 @@
-import { SectionHeading } from "@/components/ui";
-import { CheckIcon } from "@/components/icons";
+import Link from "next/link";
+import Image from "next/image";
 
-export const metadata = { title: "关于我们", description: "了解星火财商的品牌使命、服务体系、财富生命周期与教育原则。" };
+export const metadata = { title: "关于我们", description: "以财商教育点燃判断力，以长期规划陪伴家庭。了解星火财商的品牌理念与服务原则。" };
 
-const lifeStages = [
-  { no: "01", en: "CREATE", title: "创富防风险", desc: "建立财富认知与风险意识，让收入积累拥有更稳固的家庭基础。" },
-  { no: "02", en: "PRESERVE", title: "保富稳增值", desc: "梳理现金流和资产结构，在风险边界内安排家庭长期目标。" },
-  { no: "03", en: "PASS ON", title: "传富做保全", desc: "从家庭意愿、责任与治理出发，理解有序传承的规划逻辑。" },
-];
-
-const services = [
-  ["01", "财务诊断", "梳理家庭目标、收支、资产、负债与风险现状。"],
-  ["02", "方案定制", "结合家庭阶段与责任边界，形成清晰的规划思路。"],
-  ["03", "落地执行", "把规划转化为行动顺序，并在家庭变化时持续检视。"],
-  ["04", "财商授课", "通过成人和少儿课程、沙盘及复盘活动提升判断能力。"],
+const approach = [
+  ["理解", "先听见家庭的真实目标", "从家庭阶段、责任与生活愿望出发，梳理收支、资产与风险。"],
+  ["学习", "让知识成为自己的判断", "通过成人、少儿课程与财富流沙盘，把复杂知识变成可以讨论的体验。"],
+  ["规划", "把目标放进行动顺序", "结合保障需求、现金流与资产结构，形成符合家庭边界的规划思路。"],
+  ["陪伴", "跟随生活变化持续检视", "通过复盘与沟通调整行动，让规划持续服务于真实生活。"],
 ];
 
 export default function AboutPage() {
-  return <main className="about-page">
-    <section className="about-hero">
-      <div className="container about-hero-grid">
-        <div className="about-hero-copy">
-          <span className="eyebrow">ABOUT US</span>
-          <h1>以专业规划，<br />陪伴家庭走过<br /><em>财富生命周期</em></h1>
-          <p>星火财商专注中产及高净值家庭一站式财富管理，深耕财商教育、资产配置与专属理财规划。</p>
-          <div className="about-hero-tags"><span>家庭视角</span><span>长期规划</span><span>持续陪伴</span></div>
-        </div>
-        <div className="about-cycle" aria-label="创富、保富、传富三大财富生命周期">
-          <div className="about-cycle-ring ring-one" aria-hidden="true" />
-          <div className="about-cycle-ring ring-two" aria-hidden="true" />
-          <span className="cycle-spark spark-two" aria-hidden="true">✦</span>
-          <div className="cycle-core"><small>SPARK WEALTH</small><strong>财富与人生<br />共同规划</strong><span>星火财商</span></div>
-          <div className="cycle-orbit orbit-create"><article className="cycle-node"><b>01</b><div><small>CREATE</small><strong>创富防风险</strong></div></article></div>
-          <div className="cycle-orbit orbit-preserve"><article className="cycle-node"><b>02</b><div><small>PRESERVE</small><strong>保富稳增值</strong></div></article></div>
-          <div className="cycle-orbit orbit-legacy"><article className="cycle-node"><b>03</b><div><small>PASS ON</small><strong>传富做保全</strong></div></article></div>
-        </div>
+  return <main className="about-renewed">
+    <section className="brand-intro">
+      <div className="container brand-intro-grid">
+        <div><span className="eyebrow">ABOUT SPARK WEALTH</span><h1>点燃的不只是财富，<br />更是家庭的<em>选择力。</em></h1><p>我们是星火财商。专注财商教育、家庭资产配置与长期规划，陪伴中产及高净值家庭理解财富，也理解财富背后的责任与生活。</p><span className="brand-signature">一束星火，让未来更从容。</span></div>
+        <div className="brand-emblem" aria-label="星火财商原版金色 Logo"><Image src="/images/xhcs-logo-gold.png" alt="星火财商" width={520} height={588} sizes="(max-width: 600px) 180px, 290px" priority /></div>
       </div>
     </section>
-
-    <section className="section about-purpose">
-      <div className="container about-purpose-grid">
-        <div className="about-purpose-copy">
-          <span className="eyebrow">OUR PURPOSE</span>
-          <h2>让财富守护家庭<br /><em>也让每一次选择更从容</em></h2>
-          <p>我们从家庭真实目标出发，把财商教育、风险管理和长期规划放在同一套框架里，陪伴客户理解财富、管理责任并持续复盘。</p>
-          <blockquote>先看见家庭真正需要什么，再讨论工具如何服务目标。</blockquote>
-        </div>
-        <div className="about-service-map">
-          <header><span>服务定位</span><h2>从理解家庭，到陪伴行动</h2><p>不是一次性的方案，而是一套可以持续检视的服务路径。</p></header>
-          <div className="service-map-list">
-            {services.map(([no, title, desc]) => <article key={no}><span>{no}</span><div><h3>{title}</h3><p>{desc}</p></div></article>)}
-          </div>
-          <div className="service-map-note"><span>持续检视</span><p>跟随家庭阶段与责任变化，及时复盘和调整行动顺序。</p></div>
-        </div>
-      </div>
+    <section className="brand-purpose">
+      <div className="container brand-purpose-grid"><div><span className="eyebrow">WHY WE DO IT</span><h2>财富的意义，<br />最终要回到生活。</h2></div><div><p className="brand-lead">我们相信，真正的财富规划，是让家庭拥有长期选择的能力。</p><p>家庭需要的不只是更多工具，更是清晰的认知、稳固的底盘，以及面对教育、健康、养老与传承时的从容。</p><p>因此，我们把教育放在选择之前，把家庭目标放在工具之前。让每一次决定，都有理解作为起点。</p></div></div>
     </section>
-
-    <section className="section about-stages">
-      <div className="container">
-        <SectionHeading align="center" eyebrow="THREE LIFE STAGES" title="三大财富生命周期" desc="不同家庭阶段关注的问题不同，规划始终围绕目标、责任和真实承受能力展开。" />
-        <div className="about-stage-track">
-          {lifeStages.map((stage) => <article key={stage.no}><span>{stage.no}</span><small>{stage.en}</small><h3>{stage.title}</h3><p>{stage.desc}</p></article>)}
-        </div>
-      </div>
-    </section>
-
-    <section className="section about-principles">
-      <div className="container about-principles-grid">
-        <SectionHeading eyebrow="EDUCATION PRINCIPLES" title="清晰、克制，并尊重每个家庭的边界" desc="财商教育的价值，不是替家庭作出选择，而是帮助家庭建立能够长期使用的判断框架。" />
-        <div className="principles-grid">{['先目标，后工具','先风险，后收益','先理解，后行动','重结构，不追热点','重陪伴，不做承诺','重合规，尊重边界'].map((item, i)=><div key={item}><span>0{i+1}</span><CheckIcon/><b>{item}</b></div>)}</div>
-      </div>
-    </section>
+    <section className="brand-approach"><div className="container"><span className="eyebrow">HOW WE ACCOMPANY</span><div className="brand-section-heading"><h2>不替你决定，<br />陪你把选择看清楚。</h2><p>从认知到行动，从当下到长期。<br />我们与家庭一起学习、规划与复盘。</p></div><div className="brand-approach-grid">{approach.map(([word, title, desc]) => <article key={word}><span>{word}</span><h3>{title}</h3><p>{desc}</p></article>)}</div></div></section>
+    <section className="brand-values"><div className="container"><span className="eyebrow">WHAT WE BELIEVE</span><h2>专业，也有边界。</h2><div className="brand-values-grid"><article><small>CLARITY</small><h3>清晰</h3><p>先目标，后工具。<br />先理解，后行动。</p></article><article><small>RESTRAINT</small><h3>克制</h3><p>先风险，后收益。<br />重结构，不追热点。</p></article><article><small>LONG TERM</small><h3>长期</h3><p>重陪伴，不做收益承诺。<br />重合规，尊重家庭边界。</p></article></div></div></section>
+    <section className="brand-ending"><div className="container"><span className="eyebrow">SPARK WEALTH ACADEMY</span><h2>创造富而喜悦的人生。</h2><p>让财富守护所爱，让学习照亮未来。</p><Link className="button" href="/register">与我们聊聊家庭目标 →</Link></div></section>
   </main>;
 }
