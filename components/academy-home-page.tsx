@@ -43,8 +43,33 @@ const HOME_MARKUP = `
 </div>
 <div class="visual reveal">
 <div aria-hidden="true" class="halo"></div>
-<div aria-hidden="true" class="orbit o1"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
-<div aria-hidden="true" class="orbit o2"><i>${SPARK_MARKUP}</i><i>${SPARK_MARKUP}</i></div>
+<div aria-hidden="true" class="journey-ring journey-ring-outer"></div>
+<div aria-hidden="true" class="journey-ring journey-ring-inner"></div>
+<div class="journey-orbit journey-orbit-1">
+<button type="button" class="journey-star" aria-expanded="false" aria-label="查看认知阶段" data-journey="认知">
+${SPARK_MARKUP}<span class="journey-card"><b>认知</b><small>建立基础财商判断，理解金钱、目标与家庭责任。</small></span>
+</button>
+</div>
+<div class="journey-orbit journey-orbit-2">
+<button type="button" class="journey-star" aria-expanded="false" aria-label="查看保障阶段" data-journey="保障">
+${SPARK_MARKUP}<span class="journey-card"><b>保障</b><small>识别家庭风险，建立清晰、稳固的安全底盘。</small></span>
+</button>
+</div>
+<div class="journey-orbit journey-orbit-3">
+<button type="button" class="journey-star" aria-expanded="false" aria-label="查看医疗阶段" data-journey="医疗">
+${SPARK_MARKUP}<span class="journey-card"><b>医疗</b><small>连接医疗资源，让健康责任进入家庭规划。</small></span>
+</button>
+</div>
+<div class="journey-orbit journey-orbit-4 journey-orbit-reverse">
+<button type="button" class="journey-star" aria-expanded="false" aria-label="查看成长阶段" data-journey="成长">
+${SPARK_MARKUP}<span class="journey-card"><b>成长</b><small>通过课程与实践，让判断力持续成长。</small></span>
+</button>
+</div>
+<div class="journey-orbit journey-orbit-5 journey-orbit-reverse">
+<button type="button" class="journey-star" aria-expanded="false" aria-label="查看陪伴阶段" data-journey="陪伴">
+${SPARK_MARKUP}<span class="journey-card"><b>陪伴</b><small>跟随家庭变化，持续检视、复盘与调整。</small></span>
+</button>
+</div>
 <div class="academy-card">
 <img alt="星火财商学院" class="hero-logo" src="/images/xhcs-logo-gold.png"/>
 <small>学院成长地图</small>
@@ -55,8 +80,6 @@ const HOME_MARKUP = `
 <div class="mini-step"><b>3</b>医疗</div><div class="mini-step"><b>4</b>成长</div><div class="mini-step"><b>5</b>陪伴</div>
 </div>
 </div>
-<div class="float f1">财商学院</div><div class="float f2">家庭保障</div>
-<div class="float f3">医疗资源</div><div class="float f4">长期陪伴</div>
 </div>
 </div>
 </section>
@@ -242,10 +265,47 @@ export function AcademyHomePage() {
     toggle?.addEventListener("click", onToggle);
     menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", onMenuClick));
 
+    const visual = root.querySelector<HTMLElement>(".visual");
+    const stars = Array.from(root.querySelectorAll<HTMLButtonElement>(".journey-star"));
+    const closeJourneyCards = (except?: HTMLButtonElement) => {
+      stars.forEach((star) => {
+        if (star === except) return;
+        star.closest(".journey-orbit")?.classList.remove("active");
+        star.setAttribute("aria-expanded", "false");
+      });
+    };
+    const onStarClick = (event: Event) => {
+      event.stopPropagation();
+      const star = event.currentTarget as HTMLButtonElement;
+      const orbit = star.closest<HTMLElement>(".journey-orbit");
+      const willOpen = !orbit?.classList.contains("active");
+      closeJourneyCards(star);
+      if (!orbit || !willOpen) {
+        orbit?.classList.remove("active");
+        star.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      const visualBox = visual?.getBoundingClientRect();
+      const starBox = star.getBoundingClientRect();
+      if (visualBox) {
+        const isLeft = starBox.left + starBox.width / 2 < visualBox.left + visualBox.width / 2;
+        const isTop = starBox.top + starBox.height / 2 < visualBox.top + visualBox.height / 2;
+        star.dataset.cardSide = `${isTop ? "bottom" : "top"}-${isLeft ? "right" : "left"}`;
+      }
+      orbit.classList.add("active");
+      star.setAttribute("aria-expanded", "true");
+    };
+    const onOutsideClick = () => closeJourneyCards();
+    stars.forEach((star) => star.addEventListener("click", onStarClick));
+    document.addEventListener("click", onOutsideClick);
+
     return () => {
       observer.disconnect();
       toggle?.removeEventListener("click", onToggle);
       menu?.querySelectorAll("a").forEach((link) => link.removeEventListener("click", onMenuClick));
+      stars.forEach((star) => star.removeEventListener("click", onStarClick));
+      document.removeEventListener("click", onOutsideClick);
     };
   }, []);
 
