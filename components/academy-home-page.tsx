@@ -12,14 +12,14 @@ const HOME_MARKUP = `
 <span class="brand-text">星火财商学院<small>SPARK WEALTH ACADEMY</small></span>
 </a>
 <nav aria-label="主导航" class="menu">
-<a href="#academy">财商学院</a><a href="#protection">家庭保障</a><a href="#medical">医疗资源</a>
-<a href="#cases">成功案例</a><a href="/about">关于我们</a><a class="nav-cta" href="/register">课程报名</a>
+<a href="/">首页</a><a href="/about">关于我们</a><a href="/courses">课程体系</a>
+<a href="/mentors">导师团队</a><a href="/contact">联系我们</a><a class="nav-cta" href="/register">课程报名</a>
 </nav>
 <button type="button" aria-expanded="false" aria-controls="academy-mobile-menu" aria-label="打开菜单" class="mobile-toggle">☰</button>
 </div>
 <div id="academy-mobile-menu" class="academy-mobile-menu" aria-label="移动端导航">
-<a href="#academy">财商学院</a><a href="#protection">家庭保障</a><a href="#medical">医疗资源</a>
-<a href="#cases">成功案例</a><a href="/about">关于我们</a><a class="academy-mobile-cta" href="/register">课程报名</a>
+<a href="/">首页</a><a href="/about">关于我们</a><a href="/courses">课程体系</a>
+<a href="/mentors">导师团队</a><a href="/contact">联系我们</a><a class="academy-mobile-cta" href="/register">课程报名</a>
 </div>
 </header>
 <div id="top">
@@ -35,10 +35,10 @@ const HOME_MARKUP = `
 <span class="hero-slogan-gold">财商</span><span class="hero-slogan-dark">成就人生</span>
 </span>
 </h1>
-<p class="hero-copy">星火财商以财商教育为入口，帮助家庭建立正确认知、看懂财富逻辑、理解风险边界，并在保障规划、医疗资源与长期成长中持续同行。让每一个家庭都能拥有更清晰的判断、更从容的选择和更明亮的未来。</p>
+<p class="hero-copy">星火财商专注中产及高净值家庭一站式财富管理，深耕财商教育、资产配置与专属理财规划。围绕家庭不同财富阶段，提供财务诊断、方案定制、落地执行与财商授课服务。</p>
 <div class="actions">
-<a class="btn btn-primary" href="#academy">了解学院学习路径 →</a>
-<a class="btn btn-ghost" href="/register">预约家庭财富体检</a>
+<a class="btn btn-primary" href="/courses">了解课程体系 →</a>
+<a class="btn btn-ghost" href="/register">提交课程咨询</a>
 </div>
 </div>
 <div class="visual reveal">
@@ -99,31 +99,30 @@ const HOME_MARKUP = `
 </div>
 </div>
 </section>
-<section class="section" id="protection">
+<section class="section" id="lifecycle">
 <div class="shell">
 <div class="section-head reveal">
-<div><span class="eyebrow">Three capabilities, one closed loop</span><h2>从学习出发，形成家庭财富安全闭环</h2></div>
-<p>财商教育是入口，家庭保障是方案，医疗资源是在重大风险发生时真正发挥价值的专业壁垒。</p>
+<div><span class="eyebrow">Three Wealth Life Stages</span><h2>围绕家庭财富生命周期，建立长期规划</h2></div>
+<p>从财富创造期到稳定积累期，再到传承安排期，每个阶段都有不同的目标、责任和风险边界。</p>
 </div>
 <div class="closed-loop reveal">
-<article class="loop-card"><div class="loop-icon">01</div><h3>财商教育</h3><p>帮助家庭建立正确财富观、现金流意识和决策框架。</p><ul><li>财富认知与家庭目标</li><li>现金流与资产负债</li><li>风险意识与工具认知</li></ul></article>
-<article class="loop-card"><div class="loop-icon">02</div><h3>家庭保障</h3><p>把学习形成的判断，转化为适合家庭阶段的风险防线。</p><ul><li>家庭责任与风险评估</li><li>保险规划与保障结构</li><li>定期检视与方案调整</li></ul></article>
-<article class="loop-card"><div class="loop-icon">03</div><h3>医疗资源</h3><p>重大风险发生时，协助家庭做医疗决策并链接优质资源。</p><ul><li>就医信息与路径梳理</li><li>医疗资源协调与转介</li><li>就医协助与持续支持</li></ul></article>
+<article class="loop-card"><div class="loop-icon">01</div><h3>创富防风险</h3><p>建立财富认知和风险意识，让家庭积累拥有稳固基础。</p><ul><li>财富观与家庭目标</li><li>收入、支出与现金流</li><li>责任识别与风险防范</li></ul></article>
+<article class="loop-card"><div class="loop-icon">02</div><h3>保富稳增值</h3><p>梳理资产结构与目标期限，在风险边界内安排长期增长。</p><ul><li>家庭资产与负债盘点</li><li>资产配置与流动性</li><li>长期复盘与动态调整</li></ul></article>
+<article class="loop-card"><div class="loop-icon">03</div><h3>传富做保全</h3><p>从家庭意愿、责任与治理出发，理解有序传承的规划逻辑。</p><ul><li>家庭意愿与目标共识</li><li>传承风险与常见误区</li><li>长期安排与持续陪伴</li></ul></article>
 </div>
 </div>
 </section>
-<section class="section path-section" id="academy">
+<section class="section path-section" id="service">
 <div class="shell">
 <div class="section-head reveal">
-<div><span class="eyebrow">Academy Growth Path</span><h2>学院成长路径：陪你一步步建立家庭能力</h2></div>
-<p>不是一次课程结束，而是从认知、保障、医疗规划，到财富成长和长期陪伴的完整学习地图。</p>
+<div><span class="eyebrow">Four Core Services</span><h2>从了解家庭开始，让规划进入实际行动</h2></div>
+<p>四项基础服务相互衔接，让家庭看清现状、明确方向，并在变化中持续复盘。</p>
 </div>
 <div class="growth-path reveal">
-<article class="growth-step"><div class="growth-no">01</div><h3>财富认知</h3><p>建立正确财富观，看懂家庭现金流、目标和风险。</p></article>
-<article class="growth-step"><div class="growth-no">02</div><h3>家庭保障</h3><p>识别不能承受的损失，建立家庭风险防线。</p></article>
-<article class="growth-step"><div class="growth-no">03</div><h3>医疗规划</h3><p>理解重大疾病决策、就医路径与医疗资源配置。</p></article>
-<article class="growth-step"><div class="growth-no">04</div><h3>财富成长</h3><p>在安全基础上，优化资产结构与长期目标安排。</p></article>
-<article class="growth-step"><div class="growth-no">05</div><h3>长期陪伴</h3><p>随着家庭生命周期变化，持续学习、复盘与调整。</p></article>
+<article class="growth-step"><div class="growth-no">01</div><h3>财务诊断</h3><p>梳理家庭目标、收支、资产、负债与主要风险。</p></article>
+<article class="growth-step"><div class="growth-no">02</div><h3>方案定制</h3><p>结合家庭阶段与责任边界，形成清晰的规划思路。</p></article>
+<article class="growth-step"><div class="growth-no">03</div><h3>落地执行</h3><p>把规划转化为优先级明确、能够持续推进的行动。</p></article>
+<article class="growth-step"><div class="growth-no">04</div><h3>财商授课</h3><p>通过成人、少儿课程和沙盘体验提升判断能力。</p></article>
 </div>
 </div>
 </section>
@@ -131,34 +130,32 @@ const HOME_MARKUP = `
 <div class="shell curriculum">
 <div class="sticky reveal">
 <span class="eyebrow">Curriculum System</span>
-<h2>课程体系，不只讲知识，更训练家庭决策能力</h2>
-<p>课程设计围绕真实家庭情境展开，让学习能够进入生活、进入家庭讨论，也进入实际行动。</p>
-<a class="btn btn-ghost" href="/courses">获取课程目录</a>
+<h2>真实课程与体验，让财商知识进入生活</h2>
+<p>目前成人与少儿课程均开放招生咨询，具体时间、地点和费用以当期沟通为准。</p>
+<a class="btn btn-ghost" href="/courses">查看课程介绍</a>
 </div>
 <div class="course-list reveal">
-<article class="course"><div class="course-no">A1</div><div><h3>财富认知基础课</h3><p>财富观、现金流、家庭目标与风险意识。</p></div><span>↗</span></article>
-<article class="course"><div class="course-no">A2</div><div><h3>家庭资产配置课</h3><p>从家庭生命周期出发，理解资产结构与配置逻辑。</p></div><span>↗</span></article>
-<article class="course"><div class="course-no">A3</div><div><h3>家庭保障规划课</h3><p>看懂保险工具，建立与家庭责任相匹配的保障结构。</p></div><span>↗</span></article>
-<article class="course"><div class="course-no">A4</div><div><h3>家庭健康与医疗决策课</h3><p>重大疾病就医决策、医疗资源与家庭应对机制。</p></div><span>↗</span></article>
-<article class="course"><div class="course-no">A5</div><div><h3>创业家庭财富课</h3><p>企业与家庭财务边界、风险隔离与长期规划。</p></div><span>↗</span></article>
+<article class="course"><div class="course-no">A1</div><div><h3>家族财富智慧研修班</h3><p>面向成人家庭决策者，学习财富目标、风险管理、现金流与资产配置。</p></div><span>↗</span></article>
+<article class="course"><div class="course-no">A2</div><div><h3>未来财富力·少年财商成长营</h3><p>面向9—14岁少年，通过游戏和实践学习金钱、消费与价值创造。</p></div><span>↗</span></article>
+<article class="course"><div class="course-no">A3</div><div><h3>财富流沙盘</h3><p>在模拟人生与财富决策中观察选择、结果与行为模式。</p></div><span>↗</span></article>
+<article class="course"><div class="course-no">A4</div><div><h3>绘画心理体验</h3><p>通过表达与互动，理解自己和家庭的真实需求与关系。</p></div><span>↗</span></article>
+<article class="course"><div class="course-no">A5</div><div><h3>复盘沙龙</h3><p>围绕课程与家庭议题持续交流，把学习转化为长期行动。</p></div><span>↗</span></article>
 </div>
 </div>
 </section>
 <section class="section medical" id="medical">
 <div class="shell medical-grid">
 <div class="reveal">
-<span class="eyebrow">Medical Decision &amp; Resources</span>
-<h2>真正的医疗资源，<br/>是在关键时刻帮助家庭做对决定</h2>
-<p>当重大疾病发生，家庭面对的不只是费用问题，还有信息差、就医路径、专家选择和时间压力。我们把医疗资源放进家庭财富安全体系，在真正需要时提供决策与行动支持。</p>
+<span class="eyebrow">Health Resource Support</span>
+<h2>家庭财富规划，<br/>也需要看见健康责任</h2>
+<p>星火财商正在持续完善家庭健康资源支持。相关合作机构、服务范围与具体安排确认后，将在本页面正式公布。</p>
 <div class="medical-list">
-<div class="medical-item"><strong>医疗决策梳理</strong>理解病情信息、诊疗路径与关键选择。</div>
-<div class="medical-item"><strong>优质资源链接</strong>协助对接适合的医院、专家及相关资源。</div>
-<div class="medical-item"><strong>就医协助</strong>减少家庭在复杂流程中的时间与沟通成本。</div>
-<div class="medical-item"><strong>保障协同</strong>让保障方案、现金流与医疗安排形成配合。</div>
+<div class="medical-item"><strong>家庭健康责任</strong>把健康风险与家庭现金流、责任和长期目标共同考虑。</div>
+<div class="medical-item"><strong>服务信息确认</strong>具体资源与服务以实际咨询、当期可提供范围为准。</div>
 </div>
 </div>
 <div class="medical-visual reveal">
-<div class="medical-card"><strong>医疗资源不是附加服务，而是风险发生时的专业壁垒</strong><span>决策支持 · 资源协调 · 就医协助 · 持续陪伴</span></div>
+<div class="medical-card"><strong>健康资源服务正在完善</strong><span>不展示未经确认的机构、项目与服务承诺</span></div>
 </div>
 </div>
 </section>
@@ -192,16 +189,16 @@ const HOME_MARKUP = `
 </div>
 </div>
 </section>
-<section class="section" id="cases">
+<section class="section" id="club">
 <div class="shell">
 <div class="section-head reveal">
-<div><span class="eyebrow">Family Growth Cases</span><h2>成功案例，不只展示结果，更展示家庭如何完成认知升级</h2></div>
-<p>正式版本将以匿名方式呈现家庭背景、决策难题、学习过程、方案逻辑与阶段性改变。</p>
+<div><span class="eyebrow">Spark Wealth Club</span><h2>星火财富俱乐部，让学习持续发生</h2></div>
+<p>课程之外，通过体验、交流和复盘活动，为成人与少儿提供持续学习的空间。</p>
 </div>
 <div class="case-grid reveal">
-<article class="case"><small>中产家庭</small><h3>收入持续增长，却始终缺乏家庭财务安全感</h3><p>通过现金流梳理、保障检视与学习路径，重新建立家庭决策顺序。</p></article>
-<article class="case"><small>创业家庭</small><h3>企业经营风险与家庭财富长期混在一起</h3><p>建立企业与家庭边界，识别责任风险，并形成阶段性行动清单。</p></article>
-<article class="case"><small>健康风险家庭</small><h3>面对重大疾病信息时，不知道如何判断与行动</h3><p>协助梳理医疗决策、保障安排和就医资源，降低家庭的无序感。</p></article>
+<article class="case"><small>沉浸体验</small><h3>财富流沙盘</h3><p>通过模拟人生选择和财务决策，看见行为模式对长期结果的影响。</p></article>
+<article class="case"><small>自我探索</small><h3>绘画心理体验</h3><p>借助创作、表达与交流，理解自己和家庭关系中的真实需求。</p></article>
+<article class="case"><small>长期陪伴</small><h3>复盘沙龙</h3><p>围绕真实家庭议题持续交流，让课程认知逐步进入生活与行动。</p></article>
 </div>
 </div>
 </section>
@@ -209,7 +206,7 @@ const HOME_MARKUP = `
 <footer>
 <div class="shell footer-grid">
 <div class="footer-brand"><img alt="星火财商" class="footer-logo" src="/images/xhcs-logo-gold.png"/><span>星火财商学院<br/><small>SPARK WEALTH ACADEMY</small></span></div>
-<div>财商教育 · 家庭保障 · 医疗资源</div>
+<div>财商教育 · 资产配置 · 专属理财规划</div>
 <div>品牌理念：创造富而喜悦的人生</div>
 </div>
 </footer>

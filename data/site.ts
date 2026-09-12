@@ -2,28 +2,76 @@ export const navItems = [
   { label: "首页", href: "/" },
   { label: "关于我们", href: "/about" },
   { label: "课程体系", href: "/courses" },
-  { label: "财商学院", href: "/academy" },
-  { label: "学习资源", href: "/resources" },
   { label: "导师团队", href: "/mentors" },
   { label: "联系我们", href: "/contact" },
-  { label: "课程报名", href: "/register" },
 ];
 
 export const courses = [
-  { icon: "◎", title: "财富观建立", en: "Wealth Mindset", desc: "建立长期主义、风险收益匹配与理性决策框架。" },
-  { icon: "◫", title: "家庭资产配置", en: "Asset Allocation", desc: "围绕家庭目标、周期与流动性构建资产结构。" },
-  { icon: "◇", title: "风险管理", en: "Risk Management", desc: "识别家庭脆弱点，建立可持续的风险防护体系。" },
-  { icon: "⬡", title: "保险认知", en: "Insurance Literacy", desc: "理解保障逻辑、合同边界与家庭责任配置。" },
-  { icon: "↗", title: "投资思维", en: "Investment Thinking", desc: "学习资产逻辑、分散原则与长期复利思维。" },
-  { icon: "≋", title: "家庭现金流", en: "Cash Flow", desc: "优化收入、支出、储备与家庭财务安全垫。" },
-  { icon: "▦", title: "企业财税", en: "Business Finance", desc: "理解企业主家庭与经营资金的边界和规划逻辑。" },
-  { icon: "∞", title: "财富传承", en: "Legacy Planning", desc: "从家庭意愿、治理与工具角度理解有序传承。" },
+  { icon: "◎", title: "财富观建立", en: "Wealth Mindset", desc: "理解金钱与财富的关系，从家庭目标出发建立长期、理性的财富观。", points: ["金钱关系与财富本质", "家庭财富目标梳理", "价值创造与长期思维"] },
+  { icon: "◫", title: "家庭资产配置", en: "Asset Allocation", desc: "结合目标期限、资金用途与承受能力，理解家庭资产结构。", points: ["家庭资产与负债盘点", "长期、分散与分段原则", "资产配置沙盘演练"] },
+  { icon: "◇", title: "风险管理", en: "Risk Management", desc: "识别家庭内部与外部风险，建立先防风险、再谋增长的决策顺序。", points: ["家庭责任与风险识别", "风险应对的基本方式", "重大风险情境分析"] },
+  { icon: "⬡", title: "保险认知", en: "Insurance Literacy", desc: "理解保障工具在家庭风险转移和现金流安排中的作用与边界。", points: ["保障需求分析", "保险工具基础认知", "家庭责任配置逻辑"] },
+  { icon: "↗", title: "投资思维", en: "Investment Thinking", desc: "认识通胀、复利和市场波动，培养纪律与风险收益匹配意识。", points: ["通胀与复利", "宏观信息基础", "敬畏市场与投资纪律"] },
+  { icon: "≋", title: "家庭现金流", en: "Cash Flow", desc: "梳理收入、支出、负债和储备，为家庭目标建立稳定的现金流基础。", points: ["收支与结余盘点", "家庭应急储备", "目标资金安排"] },
+  { icon: "▦", title: "企业财税", en: "Business Finance", desc: "关注企业经营与家庭财富之间的责任边界，理解企业主家庭的规划重点。", points: ["企业与家庭资金边界", "经营风险识别", "家庭责任安排"] },
+  { icon: "∞", title: "财富传承", en: "Legacy Planning", desc: "从家庭意愿、责任与长期安排出发，建立有序传承的基础认知。", points: ["家庭意愿与共同目标", "传承风险与常见误区", "长期规划与定期复盘"] },
+];
+
+export const coursePrograms = [
+  {
+    code: "01",
+    name: "家族财富智慧研修班",
+    audience: "面向关注家庭财富长期安排的成人、家庭决策者与企业经营者",
+    format: "主题授课 · 财富流沙盘 · 案例研讨 · 课程复盘",
+    status: "开放招生咨询",
+    summary: "围绕金钱关系、家庭目标、风险管理、现金流与资产配置展开，通过课堂讲解、情境案例和沙盘演练，帮助学员形成更清晰的家庭财富判断框架。",
+    highlights: ["理解金钱与财富的关系", "梳理家庭目标、资产与负债", "认识风险、通胀与复利", "学习长期、分散与分段的配置思维"],
+  },
+  {
+    code: "02",
+    name: "未来财富力·少年财商成长营",
+    audience: "面向9—14岁、对金钱与商业世界充满好奇的少年",
+    format: "游戏化学习 · 情境体验 · 桌游挑战 · 实践复盘",
+    status: "开放招生咨询",
+    summary: "把金钱认知、消费判断、价值创造和商业思维放进孩子能够参与的真实情境，让孩子在选择、实践和复盘中建立基础财商能力。",
+    highlights: ["认识金钱的来源与用途", "区分需要与想要", "练习预算、取舍与消费决策", "理解劳动、交换与价值创造"],
+  },
 ];
 
 export const mentors = [
-  { initials: "SW", name: "首席财商导师", role: "家庭财富规划 / 课程研发", bio: "长期服务家庭与创业者，擅长把复杂金融概念转化为可理解、可执行的生活决策。", tags: ["家庭资产配置", "现金流管理"] },
-  { initials: "RM", name: "风险管理导师", role: "风险识别 / 保险认知", bio: "强调先识别责任与风险，再讨论工具，帮助学员建立完整而理性的保障框架。", tags: ["风险管理", "保险认知"] },
-  { initials: "LP", name: "传承规划导师", role: "企业主规划 / 财富传承", bio: "从家庭治理、企业责任和长期安排出发，讲解财富传承的底层逻辑与常见误区。", tags: ["企业财税", "财富传承"] },
+  {
+    initials: "LSL",
+    name: "李少玲",
+    title: "首席财商导师",
+    role: "家庭财富规划 / 财商教育 / 课程陪伴",
+    photo: "/images/mentors/li-shaoling.png",
+    photoClass: "mentor-photo-li",
+    bio: "拥有23年相关从业经验，关注家庭财富规划、财商教育与长期陪伴，擅长通过课程和财富流沙盘帮助学员理解家庭目标、现金流与财富结构。",
+    tags: ["财富流教练", "家庭财富规划", "财商教育"],
+    credentials: "理财规划师 / 财富流教练 / MDRT终身会员",
+  },
+  {
+    initials: "SZY",
+    name: "苏曾莹",
+    title: "风险管理师",
+    role: "家庭风险识别 / 保险认知 / 心理支持",
+    photo: "/images/mentors/su-zengying.jpg",
+    photoClass: "mentor-photo-su",
+    bio: "从家庭责任与真实需求出发，关注风险识别、保障认知和家庭沟通，帮助学员建立更清晰、更有边界的风险管理思路。",
+    tags: ["风险管理", "养老规划", "心理咨询"],
+    credentials: "RFP中国个税规划师 / RFP注册养老规划师 / 心理咨询师",
+  },
+  {
+    initials: "HJY",
+    name: "黄建迎",
+    title: "传承规划师",
+    role: "家族资产配置 / 长期服务 / 财富传承",
+    photo: "/images/mentors/huang-jianying.jpg",
+    photoClass: "mentor-photo-huang",
+    bio: "围绕家庭意愿、资产结构和长期责任开展财富规划，关注风险安排、家族资产配置与有序传承，帮助家庭把目标转化为长期行动。",
+    tags: ["家族资产配置", "长期服务", "财富传承"],
+    credentials: "家庭财富规划师 / 迎赢财富创始人",
+  },
 ];
 
 export const posts = [

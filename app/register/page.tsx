@@ -5,12 +5,12 @@ import { RegistrationForm } from "@/components/registration-form";
 import { RegistrationShareButton } from "@/components/registration-share-button";
 
 export const metadata: Metadata = {
-  title: "财富认知基础课报名",
-  description: "2分钟填写星火财商课程报名表，了解家庭现金流、资产配置、风险管理与财富传承。",
+  title: "课程咨询登记",
+  description: "2分钟填写星火财商课程咨询表，了解成人财商、少儿财商与家庭财富规划课程。",
   alternates: { canonical: "/register" },
   openGraph: {
-    title: "星火财商｜财富认知基础课报名",
-    description: "看懂家庭财务，建立正确财富观。2分钟填写，开启财富认知升级之旅。",
+    title: "星火财商｜课程咨询登记",
+    description: "了解家族财富智慧研修班、少年财商成长营及相关财商活动。",
     url: "/register",
     siteName: "星火财商",
     locale: "zh_CN",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "星火财商｜财富认知基础课报名",
-    description: "看懂家庭财务，建立正确财富观。2分钟完成报名。",
+    title: "星火财商｜课程咨询登记",
+    description: "2分钟填写课程咨询信息。",
   },
 };
 
@@ -59,7 +59,7 @@ export default function RegisterPage() {
           <span><em>星火</em>点亮未来</span>
           <span><em>财商</em>成就人生</span>
         </h1>
-        <div className="register-course-badge">财富认知基础课报名</div>
+        <div className="register-course-badge">星火财商课程咨询</div>
         <p>从学习开始，看懂家庭财务、理解风险边界，建立更清晰的财富判断与更从容的家庭选择。</p>
         <div className="register-hero-tags"><span>约 2 分钟填写</span><span>专属顾问联系</span><span>信息安全保护</span></div>
         <div className="register-wealth-visual" aria-hidden="true">
@@ -85,7 +85,7 @@ export default function RegisterPage() {
               <div><span className="register-kicker">APPLICATION FORM</span><small>星火财商学院课程报名</small></div>
             </div>
             <h2>填写报名信息</h2>
-            <p>本表用于了解您的基本情况和学习需求，提交报名不代表缴费或录取。</p>
+            <p>本表用于了解您的基本情况和学习需求，提交后课程顾问将根据当期安排与您沟通，具体时间、地点与费用以确认信息为准。</p>
           </div>
           <RegistrationForm />
         </section>

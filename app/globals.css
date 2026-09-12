@@ -212,7 +212,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .loop-card ul { list-style:none; padding:20px 0 0; border-top:1px solid var(--line); font-size:14px; color:var(--muted); }
 .academy-home .loop-card li { padding:4px 0; }.academy-home .loop-card li:before { content:"—"; color:var(--gold); margin-right:10px; }
 .academy-home .path-section { background:var(--cream); }
-.academy-home .growth-path { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.academy-home .growth-path { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
 .academy-home .growth-step { padding:24px 20px; }
 .academy-home .growth-no { font:28px Georgia,serif; color:var(--gold); border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:24px; }
 .academy-home .growth-step h3 { font-size:19px; margin:0 0 12px; }
@@ -374,3 +374,33 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
   .article-aside{grid-template-columns:1fr}
   .article-aside>a{place-items:start;padding:17px 26px}
 }
+
+/* Verified brand, course and mentor content */
+.service-foundation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.service-foundation-grid article{min-height:220px;padding:28px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.service-foundation-grid span{color:var(--gold);font:15px Georgia,serif}
+.service-foundation-grid h3{margin:38px 0 10px;font-size:22px}
+.service-foundation-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.85}
+.program-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:46px}
+.program-card{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:570px;padding:40px;border:1px solid #ddceb0;border-radius:28px;background:linear-gradient(145deg,#fffefa,#f7efdf);box-shadow:0 18px 45px rgba(87,63,20,.06)}
+.program-card:after{content:"";position:absolute;width:270px;height:270px;right:-120px;top:-120px;border:1px solid rgba(181,138,53,.16);border-radius:50%;box-shadow:0 0 0 36px rgba(181,138,53,.025)}
+.program-card-head{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.program-card-head>span{color:var(--gold);font:25px Georgia,serif}
+.program-card-head small{padding:7px 11px;border:1px solid rgba(181,138,53,.28);border-radius:999px;color:#8e671f;background:rgba(255,255,255,.62)}
+.program-card h2{position:relative;z-index:1;margin:46px 0 12px;font-size:clamp(28px,3vw,38px);line-height:1.25}
+.program-card>p{position:relative;z-index:1;color:var(--muted);font-size:15px;line-height:1.9}
+.program-card .program-audience{color:#7d5d27;font-weight:650}
+.program-format{margin:18px 0 8px;padding:14px 16px;border-left:2px solid var(--gold);background:rgba(255,255,255,.62);color:#655c4d;font-size:13px}
+.program-card ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:20px 0 32px;padding:0;list-style:none;color:#4f493f;font-size:13px}
+.program-card li{position:relative;padding-left:15px}.program-card li:before{content:"";position:absolute;left:0;top:.7em;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.program-card .button{align-self:flex-start;margin-top:auto}
+.mentor-photo{height:320px!important;background-repeat:no-repeat!important;background-color:#e9ddc8!important}
+.mentor-photo:after{display:none}
+.mentor-photo i{z-index:2;padding:5px 9px;border-radius:999px;background:rgba(22,20,15,.7);color:#f0d492}
+.mentor-photo-li{background-size:225% auto!important;background-position:3% 43%!important}
+.mentor-photo-su{background-size:218% auto!important;background-position:99% 44%!important}
+.mentor-photo-huang{background-size:216% auto!important;background-position:1% 39%!important}
+.mentor-title{display:block;margin:-4px 0 14px;color:#8c651f;font-size:15px;font-weight:650}
+.mentor-card-large .mentor-content>p{min-height:92px;line-height:1.85}
+@media(max-width:1020px){.service-foundation-grid{grid-template-columns:repeat(2,1fr)}.program-card{min-height:610px;padding:32px}.program-card ul{grid-template-columns:1fr}.mentor-photo{height:360px!important}}
+@media(max-width:780px){.service-foundation-grid,.program-grid{grid-template-columns:1fr}.program-card{min-height:0;padding:28px}.program-card h2{margin-top:34px}.program-card ul{margin-bottom:28px}.mentor-photo{height:390px!important}.mentor-card-large .mentor-content>p{min-height:0}}
