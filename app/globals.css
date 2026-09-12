@@ -147,7 +147,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .menu a:hover { color:var(--gold); }
 .academy-home .menu .menu-home-active { color:#ae7c27; font-weight:650; }
 .academy-home .menu .menu-home-active:after { content:""; position:absolute; left:50%; bottom:-12px; width:20px; height:2px; border-radius:2px; background:#bd8b30; transform:translateX(-50%); }
-.academy-home :is(.nav-cta,.academy-mobile-cta) { background:linear-gradient(135deg,#c89a3b,#aa761e); color:#fff!important; padding:10px 20px; border:1px solid #bd8b30; border-radius:10px; box-shadow:0 10px 24px rgba(174,124,39,.22); }
+.academy-home :is(.nav-cta,.academy-mobile-cta) { min-height:42px; display:inline-flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#c49b4d,#a97920); color:#fff!important; padding:0 18px; border:1px solid var(--gold); border-radius:999px; font-size:13px; font-weight:700; box-shadow:0 11px 26px rgba(181,138,53,.20); }
 .academy-home .mobile-toggle { display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--ink); font-size:24px; }
 .academy-home .academy-mobile-menu { display:none; }
 .academy-home .hero { min-height:740px; padding:142px 0 46px; position:relative; background:radial-gradient(circle at 84% 28%,rgba(224,185,94,.28),transparent 35%),linear-gradient(120deg,#fffdf8 0%,#fbf4e5 58%,#f1dda9 100%); overflow:hidden; }
@@ -388,7 +388,7 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 
 /* About page: brand story and service architecture */
 .about-page{background:#f8f5ec}
-.about-hero{position:relative;overflow:hidden;padding:100px 0 0;background:radial-gradient(circle at 83% 28%,rgba(217,174,79,.28),transparent 33%),linear-gradient(125deg,#fffdf8 0%,#faf4e7 56%,#f1dca7 100%)}
+.about-hero{position:relative;overflow:visible;padding:100px 0 0;background:radial-gradient(circle at 83% 28%,rgba(217,174,79,.28),transparent 33%),linear-gradient(125deg,#fffdf8 0%,#faf4e7 56%,#f1dca7 100%)}
 .about-hero:before{content:"";position:absolute;inset:0;opacity:.28;pointer-events:none;background-image:linear-gradient(rgba(181,138,53,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(181,138,53,.1) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,rgba(0,0,0,.45),transparent 58%)}
 .about-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center;min-height:590px}
 .about-hero-copy h1{margin:18px 0 24px;font-size:clamp(48px,5.1vw,70px);font-weight:560;line-height:1.18;letter-spacing:-.055em}
