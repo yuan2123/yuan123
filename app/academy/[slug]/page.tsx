@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts } from "@/data/site";
@@ -37,6 +38,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </header>
 
+      {"cover" in post && post.cover && <div className="container article-feature"><Image src={post.cover} alt="" width={1440} height={960} priority /></div>}
+
       <div className="container article-layout">
         <div className="article-content">
           <p className="article-lead">{post.lead}</p>
@@ -55,10 +58,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           <p className="article-disclaimer">本文用于财商知识普及，不构成针对个人的投资、保险、法律或税务建议。具体安排应结合家庭实际情况，并在需要时咨询具备相应资质的专业人士。</p>
 
-          <section className="article-sources">
+          {post.sources.length > 0 && <section className="article-sources">
             <h2>参考资料</h2>
             <ul>{post.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
-          </section>
+          </section>}
 
           <Link className="article-back" href="/academy">← 返回财商学院</Link>
         </div>
