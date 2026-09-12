@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { LOGO_JOURNEY_ART } from "@/components/logo-journey-art";
 
 const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1C13.8 8.2 15.8 10.2 23 12C15.8 13.8 13.8 15.8 12 23C10.2 15.8 8.2 13.8 1 12C8.2 10.2 10.2 8.2 12 1Z" fill="currentColor"/></svg>`;
 
@@ -46,8 +47,8 @@ const HOME_MARKUP = `
 <div class="visual reveal logo-journey">
 <div aria-hidden="true" class="path-glow"></div>
 <div class="spark-origin" aria-hidden="true">
-<span class="origin-logo-crop"><img src="/images/xhcs-logo-gold.png" alt=""/></span>
-<span class="flame-light"><img src="/images/xhcs-logo-gold.png" alt=""/></span>
+${LOGO_JOURNEY_ART}
+<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path d="M410 450C432 388 139 394 166 339C144 305 359 265 350 235C344 204 296 210 268 226C202 186 205 130 228 35"/></svg>
 </div>
 <div class="journey-message">
 <small>点燃财富 · 照亮生活</small>
@@ -186,7 +187,7 @@ export function AcademyHomePage() {
 
     const visual = root.querySelector<HTMLElement>(".visual");
     const stars = Array.from(root.querySelectorAll<HTMLButtonElement>(".journey-star"));
-    const nodes = stars.map((star, i) => ({ star, orbit: star.closest<HTMLElement>(".journey-orbit"), angle: [2.8, .5, 4.4, 1.8, 5.4][i], speed: [ .19, .16, .21, -.17, -.14 ][i] }));
+    const nodes = stars.map((star, i) => ({ star, orbit: star.closest<HTMLElement>(".journey-orbit"), progress: [.09, .28, .49, .71, .9][i], speed: [.029, .03, .028, .031, .0295][i] }));
     const syncFlame = () => visual?.classList.toggle("flame-lit", nodes.some(({ orbit }) => orbit?.classList.contains("active")));
     const closeJourneyCards = (except?: HTMLButtonElement) => {
       stars.forEach((star) => {
@@ -261,6 +262,9 @@ export function AcademyHomePage() {
     });
     document.addEventListener("click", onOutsideClick);
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const path = visual?.querySelector<SVGPathElement>(".spark-motion-guide path");
+    const pathLength = path?.getTotalLength() ?? 0;
+    const flameShapes = Array.from(visual?.querySelectorAll<SVGPathElement>(".logo-flame path") ?? []);
     let frame = 0;
     let previous = 0;
     const animate = (time: number) => {
@@ -269,15 +273,19 @@ export function AcademyHomePage() {
       const logo = visual?.querySelector<HTMLElement>(".spark-origin");
       if (visual && logo) {
         const width = logo.offsetWidth;
-        nodes.forEach((node, i) => {
-          if (!motion.matches && !node.orbit?.classList.contains("active")) node.angle += dt * node.speed;
-          // These ellipses trace the original logo's crossed bands, in image coordinates.
-          const tilt = (i < 3 ? -19 : 19) * Math.PI / 180;
-          const x = .48 * Math.cos(node.angle);
-          const y = .13 * Math.sin(node.angle);
-          if (node.orbit) {
-            node.orbit.style.left = `${logo.offsetLeft + width * (.5 + x * Math.cos(tilt) - y * Math.sin(tilt))}px`;
-            node.orbit.style.top = `${logo.offsetTop + width * (.58 + x * Math.sin(tilt) + y * Math.cos(tilt))}px`;
+        nodes.forEach((node) => {
+          if (!motion.matches && !node.orbit?.classList.contains("active")) node.progress = (node.progress + dt * node.speed) % 1;
+          if (node.orbit && path) {
+            const point = path.getPointAtLength(node.progress * pathLength);
+            const edge = Math.max(0, Math.min(1, node.progress / .08, (1 - node.progress) / .1));
+            const opacity = edge * edge * (3 - 2 * edge);
+            const behindFlame = flameShapes.some((shape) => shape.isPointInFill(new DOMPoint(point.x, point.y)));
+            node.orbit.style.left = `${logo.offsetLeft + point.x * width / 520}px`;
+            node.orbit.style.top = `${logo.offsetTop + point.y * width / 520}px`;
+            node.orbit.style.opacity = String(opacity);
+            node.star.style.pointerEvents = opacity < .2 || behindFlame ? "none" : "auto";
+            node.star.tabIndex = opacity < .2 || behindFlame ? -1 : 0;
+            if (node.orbit.classList.contains("active")) placeJourneyCard(node.star);
           }
         });
       }

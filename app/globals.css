@@ -647,6 +647,15 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 @keyframes wealth-path-flow{to{stroke-dashoffset:-52}}
 @keyframes journey-node-breathe{0%,100%{transform:translateY(0);filter:brightness(.94)}50%{transform:translateY(-4px);filter:brightness(1.08)}}
 /* Original logo, living sparks: only the central flame reacts to interaction. */
+.academy-home .logo-journey .spark-origin{z-index:auto!important}
+.academy-home .logo-journey .spark-origin svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.academy-home .logo-journey .logo-bands{z-index:0}
+.academy-home .logo-journey .logo-flame{z-index:3;filter:brightness(1);transition:filter .35s}
+.academy-home .logo-journey.flame-lit .logo-flame{filter:brightness(1.22) saturate(1.08) drop-shadow(0 0 6px rgba(239,195,81,.28))}
+.academy-home .logo-journey .logo-front-bands{z-index:4}
+.academy-home .logo-journey .spark-motion-guide{visibility:hidden}
+.academy-home .logo-journey .journey-node:not(.active){z-index:2}
+.about-renewed .page-hero h1{font-weight:400;letter-spacing:-.055em}
 .academy-home .visual.logo-journey{width:100%;max-width:520px;height:auto;aspect-ratio:1/1.12;margin-inline:auto}
 .academy-home .logo-journey .spark-origin{left:5%;top:12px;bottom:auto;width:90%;height:auto;aspect-ratio:520/465;pointer-events:none}
 .academy-home .logo-journey .origin-logo-crop{width:100%;height:100%;margin:0;filter:none}
