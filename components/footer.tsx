@@ -21,7 +21,7 @@ export function Footer() {
         </div>
         <div>
           <h3>联系我们</h3>
-          <div className="footer-contact"><Link href="/contact">提交在线咨询</Link><span>课程时间、地点与费用以当期沟通为准</span><span>联系电话与微信信息完善中</span></div>
+          <div className="footer-contact"><a href="tel:15322014972">电话：153 2201 4972</a><Link href="/contact">微信咨询与在线留言</Link><span>课程时间、地点与费用以当期沟通为准</span></div>
         </div>
       </div>
       <div className="container footer-bottom"><span>© 2026 星火财商 Spark Wealth Academy</span><span>隐私政策 · 使用条款 · 合规声明</span></div>
