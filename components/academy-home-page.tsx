@@ -12,7 +12,7 @@ const HOME_MARKUP = `
 <span class="brand-text">星火财商学院<small>SPARK WEALTH ACADEMY</small></span>
 </a>
 <nav aria-label="主导航" class="menu">
-<a href="/">首页</a><a href="/about">关于我们</a><a class="menu-course-link" href="/courses">课程体系</a><a href="/academy">财商学院</a>
+<a class="menu-home-active" href="/">首页</a><a href="/about">关于我们</a><a href="/courses">课程体系</a><a href="/academy">财商学院</a>
 <a href="/mentors">导师团队</a><a href="/contact">联系我们</a><a class="nav-cta" href="/register">课程报名</a>
 </nav>
 <button type="button" aria-expanded="false" aria-controls="academy-mobile-menu" aria-label="打开菜单" class="mobile-toggle">☰</button>
