@@ -4,6 +4,17 @@ import { useEffect } from "react";
 
 const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1C13.8 8.2 15.8 10.2 23 12C15.8 13.8 13.8 15.8 12 23C10.2 15.8 8.2 13.8 1 12C8.2 10.2 10.2 8.2 12 1Z" fill="currentColor"/></svg>`;
 
+const JOURNEY_STAR_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1.8L15.1 8.1L22 9.1L17 13.9L18.2 20.8L12 17.5L5.8 20.8L7 13.9L2 9.1L8.9 8.1L12 1.8Z" fill="currentColor"/></svg>`;
+
+const FLAME_MARKUP = `<svg class="flame-mark" viewBox="0 0 88 104" fill="none" aria-hidden="true">
+<defs><linearGradient id="flameGold" x1="23" y1="12" x2="68" y2="91" gradientUnits="userSpaceOnUse"><stop stop-color="#F4DB91"/><stop offset=".48" stop-color="#C89637"/><stop offset="1" stop-color="#91621A"/></linearGradient><linearGradient id="flameLight" x1="35" y1="43" x2="51" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF4C9"/><stop offset="1" stop-color="#D9A94C"/></linearGradient></defs>
+<path d="M45 13C54 30 69 43 67 61C65 80 54 92 38 92C21 92 10 80 12 64C14 50 25 43 28 29C34 37 36 45 34 53C43 46 49 33 45 13Z" fill="url(#flameGold)"/>
+<path d="M43 43C51 54 56 63 52 74C49 83 43 88 36 87C28 86 24 80 25 72C26 64 33 60 35 52C39 57 40 62 39 67C44 61 46 53 43 43Z" fill="url(#flameLight)"/>
+<path d="M67 4C68.4 9.6 70.4 11.6 76 13C70.4 14.4 68.4 16.4 67 22C65.6 16.4 63.6 14.4 58 13C63.6 11.6 65.6 9.6 67 4Z" fill="#D7AF58"/>
+<path d="M18 31C18.8 34.2 19.8 35.2 23 36C19.8 36.8 18.8 37.8 18 41C17.2 37.8 16.2 36.8 13 36C16.2 35.2 17.2 34.2 18 31Z" fill="#E7CA7B"/>
+<path d="M18 88C34 98 57 98 72 84" stroke="#C18E32" stroke-width="2" stroke-linecap="round"/>
+</svg>`;
+
 const HOME_MARKUP = `
 <header class="nav">
 <div class="shell nav-inner">
@@ -47,38 +58,34 @@ const HOME_MARKUP = `
 <div aria-hidden="true" class="journey-ring journey-ring-inner"></div>
 <div class="journey-orbit journey-orbit-1">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看认知阶段" data-journey="认知">
-${SPARK_MARKUP}<span class="journey-card"><b>认知</b><small>建立基础财商判断，理解金钱、目标与家庭责任。</small></span>
+${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>认知</b><small>建立基础财商判断，理解金钱、目标与家庭责任。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-orbit-2">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看保障阶段" data-journey="保障">
-${SPARK_MARKUP}<span class="journey-card"><b>保障</b><small>识别家庭风险，建立清晰、稳固的安全底盘。</small></span>
+${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>保障</b><small>识别家庭风险，建立清晰、稳固的安全底盘。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-orbit-3">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看医疗阶段" data-journey="医疗">
-${SPARK_MARKUP}<span class="journey-card"><b>医疗</b><small>连接医疗资源，让健康责任进入家庭规划。</small></span>
+${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>医疗</b><small>连接医疗资源，让健康责任进入家庭规划。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-orbit-4 journey-orbit-reverse">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看成长阶段" data-journey="成长">
-${SPARK_MARKUP}<span class="journey-card"><b>成长</b><small>通过课程与实践，让判断力持续成长。</small></span>
+${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>成长</b><small>通过课程与实践，让判断力持续成长。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-orbit-5 journey-orbit-reverse">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看陪伴阶段" data-journey="陪伴">
-${SPARK_MARKUP}<span class="journey-card"><b>陪伴</b><small>跟随家庭变化，持续检视、复盘与调整。</small></span>
+${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>陪伴</b><small>跟随家庭变化，持续检视、复盘与调整。</small></span>
 </button>
 </div>
 <div class="academy-card">
-<img alt="星火财商学院" class="hero-logo" src="/images/xhcs-logo-gold.png"/>
-<small>学院成长地图</small>
-<h3>从认知到陪伴</h3>
-<p>先学会判断，再建立家庭财富安全系统。</p>
-<div class="mini-path">
-<div class="mini-step"><b>1</b>认知</div><div class="mini-step"><b>2</b>保障</div>
-<div class="mini-step"><b>3</b>医疗</div><div class="mini-step"><b>4</b>成长</div><div class="mini-step"><b>5</b>陪伴</div>
-</div>
+<div class="core-flame">${FLAME_MARKUP}</div>
+<small class="core-kicker">点燃财富</small>
+<h3>从认知，到陪伴</h3>
+<p>让知识进入家庭，也陪伴家庭持续成长</p>
 </div>
 </div>
 </div>
