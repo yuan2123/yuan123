@@ -6,20 +6,6 @@ const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" ar
 
 const JOURNEY_STAR_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1.8L15.1 8.1L22 9.1L17 13.9L18.2 20.8L12 17.5L5.8 20.8L7 13.9L2 9.1L8.9 8.1L12 1.8Z" fill="currentColor"/></svg>`;
 
-const IGNITION_MARKUP = `<svg class="ignition-mark" viewBox="0 0 100 112" fill="none" aria-hidden="true">
-<defs><linearGradient id="ignitionGold" x1="26" y1="92" x2="75" y2="20" gradientUnits="userSpaceOnUse"><stop stop-color="#93651B"/><stop offset=".5" stop-color="#CE9C3C"/><stop offset="1" stop-color="#F2D887"/></linearGradient></defs>
-<g class="ignition-rays" stroke="url(#ignitionGold)" stroke-linecap="round">
-<path d="M50 91C48 70 49 47 51 24" stroke-width="6"/>
-<path d="M47 90C38 72 30 56 33 38" stroke-width="4"/>
-<path d="M53 90C65 71 73 53 69 34" stroke-width="4"/>
-</g>
-<path d="M51 5C52.7 12 55 14.3 62 16C55 17.7 52.7 20 51 27C49.3 20 47 17.7 40 16C47 14.3 49.3 12 51 5Z" fill="#D8AE54"/>
-<path d="M23 31C23.8 34.4 25 35.6 28.4 36.4C25 37.2 23.8 38.4 23 41.8C22.2 38.4 21 37.2 17.6 36.4C21 35.6 22.2 34.4 23 31Z" fill="#E9CC7C"/>
-<path d="M80 45C80.7 47.8 81.7 48.8 84.5 49.5C81.7 50.2 80.7 51.2 80 54C79.3 51.2 78.3 50.2 75.5 49.5C78.3 48.8 79.3 47.8 80 45Z" fill="#C99536"/>
-<path d="M21 91C36 102 64 102 79 91" stroke="#B58128" stroke-width="2" stroke-linecap="round"/>
-<circle cx="50" cy="91" r="4" fill="#C89335"/>
-</svg>`;
-
 const HOME_MARKUP = `
 <header class="nav">
 <div class="shell nav-inner">
@@ -87,7 +73,7 @@ ${JOURNEY_STAR_MARKUP}<span class="journey-card"><b>陪伴</b><small>跟随家�
 </button>
 </div>
 <div class="academy-card">
-<div class="core-emblem">${IGNITION_MARKUP}</div>
+<div class="core-emblem" aria-hidden="true"><span class="core-logo-crop"><img src="/images/xhcs-logo-gold.png" alt=""/></span></div>
 <small class="core-kicker">点燃财富</small>
 <h3>从认知，到陪伴</h3>
 <p>让知识进入家庭，也陪伴家庭持续成长</p>
