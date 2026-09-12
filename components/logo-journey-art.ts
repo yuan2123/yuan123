@@ -23,6 +23,6 @@ export const LOGO_JOURNEY_ART = `
  <g fill="url(#homeFlameGold)" stroke="#c4b889" stroke-width=".7" stroke-linejoin="round">${flamePaths}</g>
 </svg>
 <svg class="logo-front-bands" viewBox="0 0 520 465" aria-hidden="true">
- <defs><clipPath id="homeFrontBands"><rect x="0" y="326" width="520" height="139"/></clipPath></defs>
+ <defs><clipPath id="homeFrontBands"><rect x="-80" y="326" width="680" height="139"/></clipPath></defs>
  <g fill="url(#homeBandGold)" clip-path="url(#homeFrontBands)"><path d="${descendingBand}"/><path d="${ascendingBand}"/></g>
 </svg>`;

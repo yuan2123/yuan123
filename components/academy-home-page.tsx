@@ -48,7 +48,7 @@ const HOME_MARKUP = `
 <div aria-hidden="true" class="path-glow"></div>
 <div class="spark-origin" aria-hidden="true">
 ${LOGO_JOURNEY_ART}
-<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path d="M410 450C432 388 139 394 166 339C144 305 359 265 350 235C344 204 296 210 268 226C202 186 205 130 228 35"/></svg>
+<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path class="spark-full-route" d="M410 450C432 388 139 394 166 339C144 305 359 265 350 235C344 204 296 210 268 226C202 186 205 130 228 35"/><path class="spark-entry-route" d="M410 450C432 388 139 394 166 339"/><path class="spark-rear-route" d="M166 339C144 305 359 265 350 235"/></svg>
 </div>
 <div class="journey-message">
 <small>点燃财富 · 照亮生活</small>
@@ -187,7 +187,17 @@ export function AcademyHomePage() {
 
     const visual = root.querySelector<HTMLElement>(".visual");
     const stars = Array.from(root.querySelectorAll<HTMLButtonElement>(".journey-star"));
-    const nodes = stars.map((star, i) => ({ star, orbit: star.closest<HTMLElement>(".journey-orbit"), progress: [.09, .28, .49, .71, .9][i], speed: [.029, .03, .028, .031, .0295][i] }));
+    // Rendered sparks and interactive buttons are separate layers: a hidden
+    // spark remains clickable, and its card never pulls it in front of the flame.
+    const nodes = stars.map((star, i) => {
+      const spark = document.createElement("span");
+      spark.className = "journey-spark";
+      spark.setAttribute("aria-hidden", "true");
+      const icon = star.querySelector("svg");
+      if (icon) spark.appendChild(icon.cloneNode(true));
+      visual?.appendChild(spark);
+      return { star, spark, orbit: star.closest<HTMLElement>(".journey-orbit"), progress: [.09, .28, .49, .71, .9][i], speed: [.029, .03, .028, .031, .0295][i] };
+    });
     const syncFlame = () => visual?.classList.toggle("flame-lit", nodes.some(({ orbit }) => orbit?.classList.contains("active")));
     const closeJourneyCards = (except?: HTMLButtonElement) => {
       stars.forEach((star) => {
@@ -234,10 +244,10 @@ export function AcademyHomePage() {
       syncFlame();
     };
     const onStarClick = (event: Event) => {
+      event.stopPropagation();
       const isTouchInteraction = window.matchMedia("(hover: none), (pointer: coarse)").matches;
       const isKeyboardInteraction = event instanceof MouseEvent && event.detail === 0;
       if (!isTouchInteraction && !isKeyboardInteraction) return;
-      event.stopPropagation();
       const star = event.currentTarget as HTMLButtonElement;
       const orbit = placeJourneyCard(star);
       const willOpen = !orbit?.classList.contains("active");
@@ -262,9 +272,10 @@ export function AcademyHomePage() {
     });
     document.addEventListener("click", onOutsideClick);
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const path = visual?.querySelector<SVGPathElement>(".spark-motion-guide path");
+    const path = visual?.querySelector<SVGPathElement>(".spark-full-route");
     const pathLength = path?.getTotalLength() ?? 0;
-    const flameShapes = Array.from(visual?.querySelectorAll<SVGPathElement>(".logo-flame path") ?? []);
+    const entryLength = visual?.querySelector<SVGPathElement>(".spark-entry-route")?.getTotalLength() ?? 0;
+    const rearLength = visual?.querySelector<SVGPathElement>(".spark-rear-route")?.getTotalLength() ?? 0;
     let frame = 0;
     let previous = 0;
     const animate = (time: number) => {
@@ -276,15 +287,21 @@ export function AcademyHomePage() {
         nodes.forEach((node) => {
           if (!motion.matches && !node.orbit?.classList.contains("active")) node.progress = (node.progress + dt * node.speed) % 1;
           if (node.orbit && path) {
-            const point = path.getPointAtLength(node.progress * pathLength);
+            const distance = node.progress * pathLength;
+            const point = path.getPointAtLength(distance);
             const edge = Math.max(0, Math.min(1, node.progress / .08, (1 - node.progress) / .1));
             const opacity = edge * edge * (3 - 2 * edge);
-            const behindFlame = flameShapes.some((shape) => shape.isPointInFill(new DOMPoint(point.x, point.y)));
+            const behindFlame = distance >= entryLength && distance <= entryLength + rearLength && point.x < 300;
             node.orbit.style.left = `${logo.offsetLeft + point.x * width / 520}px`;
             node.orbit.style.top = `${logo.offsetTop + point.y * width / 520}px`;
             node.orbit.style.opacity = String(opacity);
-            node.star.style.pointerEvents = opacity < .2 || behindFlame ? "none" : "auto";
-            node.star.tabIndex = opacity < .2 || behindFlame ? -1 : 0;
+            node.spark.style.left = node.orbit.style.left;
+            node.spark.style.top = node.orbit.style.top;
+            node.spark.style.opacity = String(opacity);
+            node.spark.style.zIndex = behindFlame ? "2" : "5";
+            node.spark.classList.toggle("active", node.orbit.classList.contains("active"));
+            node.star.style.pointerEvents = opacity < .2 ? "none" : "auto";
+            node.star.tabIndex = opacity < .2 ? -1 : 0;
             if (node.orbit.classList.contains("active")) placeJourneyCard(node.star);
           }
         });
@@ -296,6 +313,7 @@ export function AcademyHomePage() {
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frame);
+      nodes.forEach(({ spark }) => spark.remove());
       toggle?.removeEventListener("click", onToggle);
       menu?.querySelectorAll("a").forEach((link) => link.removeEventListener("click", onMenuClick));
       stars.forEach((star) => {
