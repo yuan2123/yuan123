@@ -93,7 +93,7 @@ const HOME_MARKUP = `
 </article>
 <article class="quote-panel">
 <small>学院核心理念</small>
-<p class="big">“先拥有判断力，再拥有选择力；<br class="quote-break"/>让财富成为家庭安心、<br class="quote-break"/>成长与喜悦的力量。”</p>
+<p class="big"><span class="quote-line">“先拥有判断力，再拥有选择力；</span><span class="quote-line">让财富成为家庭安心、</span><span class="quote-line">成长与喜悦的力量。”</span></p>
 <span>点燃财富 · 创造富而喜悦的人生</span>
 </article>
 </div>
