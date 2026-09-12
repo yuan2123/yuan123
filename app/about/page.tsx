@@ -37,11 +37,6 @@ export default function AboutPage() {
           <article className="cycle-node node-legacy"><b>03</b><div><small>PASS ON</small><strong>传富做保全</strong></div></article>
         </div>
       </div>
-      <div className="container about-fact-strip">
-        <div><strong>03</strong><span>财富生命周期</span></div>
-        <div><strong>04</strong><span>基础服务环节</span></div>
-        <div><strong>成人 · 少儿</strong><span>覆盖不同学习阶段</span></div>
-      </div>
     </section>
 
     <section className="section about-purpose">
@@ -55,6 +50,7 @@ export default function AboutPage() {
           <div className="service-map-list">
             {services.map(([no, title, desc]) => <article key={no}><span>{no}</span><div><h3>{title}</h3><p>{desc}</p></div></article>)}
           </div>
+          <div className="service-map-note"><span>持续检视</span><p>跟随家庭阶段与责任变化，及时复盘和调整行动顺序。</p></div>
         </div>
       </div>
     </section>
