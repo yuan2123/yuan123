@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Logo />
-          <p>专注中产及高净值家庭一站式财富管理，深耕财商教育、资产配置与专属理财规划。</p>
+          <p>以教育提升认知，以规划创造从容。帮助更多家庭建立理性、稳健、长期的财富观。</p>
           <div className="compliance-note">教育内容不构成投资建议，市场有风险，决策需谨慎。</div>
         </div>
         <div>
@@ -21,7 +21,7 @@ export function Footer() {
         </div>
         <div>
           <h3>联系我们</h3>
-          <div className="footer-contact"><a href="tel:15322014972">电话：153 2201 4972</a><Link href="/contact">微信咨询与在线留言</Link><span>课程时间、地点与费用以当期沟通为准</span></div>
+          <div className="footer-contact"><span>电话：400-XXX-XXXX</span><span>邮箱：hello@sparkwealth.example</span><span>地址：中国 · 广东（占位）</span><span>服务时间：09:00–18:00</span></div>
         </div>
       </div>
       <div className="container footer-bottom"><span>© 2026 星火财商 Spark Wealth Academy</span><span>隐私政策 · 使用条款 · 合规声明</span></div>

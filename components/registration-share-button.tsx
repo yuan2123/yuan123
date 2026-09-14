@@ -8,7 +8,7 @@ export function RegistrationShareButton() {
   async function share() {
     const url = window.location.href.split("?")[0];
     const shareData = {
-      title: "星火财商｜课程咨询登记",
+      title: "星火财商｜财富认知基础课报名",
       text: "2分钟填写，开启你的财富认知升级之旅。",
       url,
     };

@@ -63,8 +63,6 @@ export function ContactForm() {
           <option value="" disabled>
             请选择
           </option>
-          <option>家族财富智慧研修班</option>
-          <option>未来财富力·少年财商成长营</option>
           <option>家庭资产配置</option>
           <option>现金流管理</option>
           <option>风险与保障</option>
