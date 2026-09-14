@@ -3,7 +3,6 @@ export const navItems = [
   { label: "关于我们", href: "/about" },
   { label: "课程体系", href: "/courses" },
   { label: "财商学院", href: "/academy" },
-  { label: "导师团队", href: "/mentors" },
   { label: "联系我们", href: "/contact" },
 ];
 
