@@ -768,3 +768,6 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .logo-journey .journey-star,
 .academy-home .logo-journey .journey-spark{width:56px;height:56px}
 }
+
+.academy-home .logo-journey .journey-spark.active svg>path{fill:#fffdf5;stroke:#a98443}
+.academy-home .logo-journey .journey-spark.active svg>text{fill:#604016}
