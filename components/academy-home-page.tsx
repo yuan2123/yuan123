@@ -5,7 +5,7 @@ import { LOGO_JOURNEY_ART } from "@/components/logo-journey-art";
 
 const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1C13.8 8.2 15.8 10.2 23 12C15.8 13.8 13.8 15.8 12 23C10.2 15.8 8.2 13.8 1 12C8.2 10.2 10.2 8.2 12 1Z" fill="currentColor"/></svg>`;
 
-const journeyStarMarkup = (label: string) => `<svg class="spark-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 3L64 32L96 37L73 60L78 93L50 78L22 93L27 60L4 37L36 32Z" fill="#f6e7bf" stroke="#bd913c" stroke-width="1.4" stroke-linejoin="round"/><text x="50" y="54" text-anchor="middle" dominant-baseline="middle" fill="#73501b" font-size="18" font-weight="600" font-family="system-ui, sans-serif">${label}</text></svg>`;
+const journeyStarMarkup = (label: string) => `<svg class="spark-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M47.78 8.67Q50.00 6.00 52.22 8.67L64.83 23.87Q67.05 26.54 70.27 27.82L88.62 35.12Q91.85 36.40 89.99 39.34L79.44 56.03Q77.58 58.96 77.36 62.42L76.09 82.13Q75.86 85.60 72.50 84.74L53.36 79.86Q50.00 79.00 46.64 79.86L27.50 84.74Q24.14 85.60 23.91 82.13L22.64 62.42Q22.42 58.96 20.56 56.03L10.01 39.34Q8.15 36.40 11.38 35.12L29.73 27.82Q32.95 26.54 35.17 23.87Z" fill="#fffaf0" stroke="#c5a66b" stroke-width="1.25" stroke-linejoin="round"/><text x="50" y="54" text-anchor="middle" dominant-baseline="middle" fill="#73501b" font-size="21" font-weight="500" font-family="system-ui, sans-serif">${label}</text></svg>`;
 
 const HOME_MARKUP = `
 <header class="nav">
@@ -48,7 +48,7 @@ const HOME_MARKUP = `
 <div aria-hidden="true" class="path-glow"></div>
 <div class="spark-origin" aria-hidden="true">
 ${LOGO_JOURNEY_ART}
-<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path class="spark-full-route" d="M398 450C421 390 148 402 162 340C174 298 366 270 352 230C338 196 298 205 268 226C240 239 194 140 230 35"/><path class="spark-entry-route" d="M398 450C421 390 148 402 162 340"/><path class="spark-rear-route" d="M162 340C174 298 366 270 352 230"/></svg>
+<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path class="spark-full-route" d="M445 440C383 437 168 381 116 351C75 329 115 310 178 312C228 303 308 281 342 261C396 244 411 225 382 207C350 178 261 182 231 160C207 144 214 100 230 45"/><path class="spark-entry-route" d="M445 440C383 437 168 381 116 351C75 329 115 310 178 312"/><path class="spark-rear-route" d="M178 312C228 303 308 281 342 261"/></svg>
 </div>
 <div class="journey-message">
 <small>点燃财富 · 照亮生活</small>
@@ -196,7 +196,7 @@ export function AcademyHomePage() {
       const icon = star.querySelector("svg");
       if (icon) spark.appendChild(icon.cloneNode(true));
       visual?.appendChild(spark);
-      return { star, spark, orbit: star.closest<HTMLElement>(".journey-orbit"), progress: [.06, .26, .46, .66, .86][i], speed: .035 };
+      return { star, spark, orbit: star.closest<HTMLElement>(".journey-orbit"), progress: [.05, .24, .43, .62, .81][i], speed: .035 };
     });
     const syncFlame = () => visual?.classList.toggle("flame-lit", nodes.some(({ orbit }) => orbit?.classList.contains("active")));
     const closeJourneyCards = (except?: HTMLButtonElement) => {
@@ -284,24 +284,25 @@ export function AcademyHomePage() {
       const logo = visual?.querySelector<HTMLElement>(".spark-origin");
       if (visual && logo) {
         const width = logo.offsetWidth;
+        const paused = nodes.some((node) => node.orbit?.classList.contains("active"));
         nodes.forEach((node) => {
-          if (!motion.matches && !node.orbit?.classList.contains("active")) node.progress = (node.progress + dt * node.speed) % 1;
+          if (!motion.matches && !paused) node.progress = (node.progress + dt * node.speed) % 1;
           if (node.orbit && path) {
             const distance = node.progress * pathLength;
             const point = path.getPointAtLength(distance);
             const edge = Math.max(0, Math.min(1, node.progress / .08, (1 - node.progress) / .1));
             const opacity = edge * edge * (3 - 2 * edge);
-            const behindFlame = distance >= entryLength && distance <= entryLength + rearLength && point.x < 300;
+            const behindFlame = distance >= entryLength && distance <= entryLength + rearLength;
             node.orbit.style.left = `${logo.offsetLeft + point.x * width / 520}px`;
             node.orbit.style.top = `${logo.offsetTop + point.y * width / 520}px`;
-            node.orbit.style.opacity = String(opacity);
+            node.orbit.style.opacity = "1";
             node.spark.style.left = node.orbit.style.left;
             node.spark.style.top = node.orbit.style.top;
             node.spark.style.opacity = String(opacity);
             node.spark.style.zIndex = behindFlame ? "2" : "5";
             node.spark.classList.toggle("active", node.orbit.classList.contains("active"));
-            node.star.style.pointerEvents = opacity < .2 ? "none" : "auto";
-            node.star.tabIndex = opacity < .2 ? -1 : 0;
+            node.star.style.pointerEvents = opacity < .05 ? "none" : "auto";
+            node.star.tabIndex = opacity < .05 ? -1 : 0;
             if (node.orbit.classList.contains("active")) placeJourneyCard(node.star);
           }
         });
