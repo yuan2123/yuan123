@@ -21,13 +21,14 @@
    - ADMIN_SESSION_SECRET
    - ALLOWED_ORIGINS
    - REGISTRATION_DUPLICATE_WINDOW_MS
-4. 部署后测试：
+4. 数据库准备好后，在本地或受控环境中执行 `npm run db:deploy`。数据库迁移不再绑定网页构建，避免数据库尚未配置时阻止网站部署。
+5. 部署后测试：
    - 首页和所有栏目
    - `/registration-form.html` 报名提交
    - `/admin/login` 后台登录
    - `/admin` 报名列表、状态修改、CSV 导出
-5. 绑定正式域名并保持 HTTPS。
-6. 更换所有曾经放入 `.env` 的管理员密码和会话密钥。
+6. 绑定正式域名并保持 HTTPS。
+7. 更换所有曾经放入 `.env` 的管理员密码和会话密钥。
 
 ## 不要提交到代码仓库
 - `.env`
