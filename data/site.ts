@@ -26,9 +26,9 @@ export const mentors = [
 ];
 
 export const posts = [
-  { category: "家庭财富", title: "家庭资产配置，不是把钱分成四份那么简单", excerpt: "真正的配置，始于家庭目标、责任期限与风险承受能力。", date: "2026.07.08", read: "6 分钟" },
-  { category: "现金流", title: "高收入家庭为什么仍然缺乏财务安全感？", excerpt: "收入不是安全感，稳定、清晰、可持续的现金流结构才是。", date: "2026.07.03", read: "5 分钟" },
-  { category: "风险管理", title: "先谈风险，再谈收益：家庭财富决策的正确顺序", excerpt: "风险管理不是保守，而是让家庭拥有持续做选择的能力。", date: "2026.06.26", read: "7 分钟" },
+  { slug: "family-asset-allocation", category: "家庭财富", title: "家庭资产配置，不是把钱分成四份那么简单", excerpt: "真正的配置，始于家庭目标、责任期限与风险承受能力。", date: "2026.07.08", read: "6 分钟" },
+  { slug: "high-income-cash-flow", category: "现金流", title: "高收入家庭为什么仍然缺乏财务安全感？", excerpt: "收入不是安全感，稳定、清晰、可持续的现金流结构才是。", date: "2026.07.03", read: "5 分钟" },
+  { slug: "risk-before-return", category: "风险管理", title: "先谈风险，再谈收益：家庭财富决策的正确顺序", excerpt: "风险管理不是保守，而是让家庭拥有持续做选择的能力。", date: "2026.06.26", read: "7 分钟" },
 ];
 
 export const resources = [
