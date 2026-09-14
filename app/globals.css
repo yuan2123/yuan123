@@ -752,3 +752,19 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
   .academy-home .trust-cta-grid{gap:32px}.academy-home .standard-list{grid-template-columns:1fr;border-radius:18px}.academy-home .standard-list article{min-height:0;padding:20px}
 }
 
+
+/* Named star-shaped cards rise along the flame's open motion path. */
+.academy-home .logo-journey .journey-node,
+.academy-home .logo-journey .journey-star,
+.academy-home .logo-journey .journey-spark{width:76px;height:76px}
+.academy-home .logo-journey .journey-star{padding:0;filter:none}
+.academy-home .logo-journey .journey-star .spark-mark{width:100%;height:100%}
+.academy-home .logo-journey .journey-spark{filter:drop-shadow(0 3px 6px rgba(146,108,34,.15))}
+.academy-home .logo-journey .journey-spark.active{filter:drop-shadow(0 3px 9px rgba(146,108,34,.3))}
+.academy-home .logo-journey .journey-star:hover,
+.academy-home .logo-journey .active .journey-star{filter:none}
+@media(max-width:600px){
+.academy-home .logo-journey .journey-node,
+.academy-home .logo-journey .journey-star,
+.academy-home .logo-journey .journey-spark{width:64px;height:64px}
+}

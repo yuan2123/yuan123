@@ -5,7 +5,7 @@ import { LOGO_JOURNEY_ART } from "@/components/logo-journey-art";
 
 const SPARK_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1C13.8 8.2 15.8 10.2 23 12C15.8 13.8 13.8 15.8 12 23C10.2 15.8 8.2 13.8 1 12C8.2 10.2 10.2 8.2 12 1Z" fill="currentColor"/></svg>`;
 
-const JOURNEY_STAR_MARKUP = `<svg class="spark-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1.8L15.1 8.1L22 9.1L17 13.9L18.2 20.8L12 17.5L5.8 20.8L7 13.9L2 9.1L8.9 8.1L12 1.8Z" fill="currentColor"/></svg>`;
+const journeyStarMarkup = (label: string) => `<svg class="spark-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 3L64 32L96 37L73 60L78 93L50 78L22 93L27 60L4 37L36 32Z" fill="#f6e7bf" stroke="#bd913c" stroke-width="1.4" stroke-linejoin="round"/><text x="50" y="54" text-anchor="middle" dominant-baseline="middle" fill="#73501b" font-size="18" font-weight="600" font-family="system-ui, sans-serif">${label}</text></svg>`;
 
 const HOME_MARKUP = `
 <header class="nav">
@@ -48,7 +48,7 @@ const HOME_MARKUP = `
 <div aria-hidden="true" class="path-glow"></div>
 <div class="spark-origin" aria-hidden="true">
 ${LOGO_JOURNEY_ART}
-<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path class="spark-full-route" d="M38 350C0 245 438 177 482 282C520 387 76 455 38 350Z"/><path class="spark-rear-route" d="M38 350C0 245 438 177 482 282"/></svg>
+<svg class="spark-motion-guide" viewBox="0 0 520 465" aria-hidden="true"><path class="spark-full-route" d="M398 450C421 390 148 402 162 340C174 298 366 270 352 230C338 196 298 205 268 226C240 239 194 140 230 35"/><path class="spark-entry-route" d="M398 450C421 390 148 402 162 340"/><path class="spark-rear-route" d="M162 340C174 298 366 270 352 230"/></svg>
 </div>
 <div class="journey-message">
 <small>点燃财富 · 照亮生活</small>
@@ -57,27 +57,27 @@ ${LOGO_JOURNEY_ART}
 </div>
 <div class="journey-orbit journey-node journey-node-1">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看医疗阶段" data-journey="医疗">
-${JOURNEY_STAR_MARKUP}<em>医疗</em><span class="journey-card"><b>医疗</b><small>连接医疗资源，让健康责任进入家庭规划。</small></span>
+${journeyStarMarkup("医疗")}<em>医疗</em><span class="journey-card"><b>医疗</b><small>连接医疗资源，让健康责任进入家庭规划。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-node journey-node-2">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看保障阶段" data-journey="保障">
-${JOURNEY_STAR_MARKUP}<em>保障</em><span class="journey-card"><b>保障</b><small>识别家庭风险，建立清晰、稳固的安全底盘。</small></span>
+${journeyStarMarkup("保障")}<em>保障</em><span class="journey-card"><b>保障</b><small>识别家庭风险，建立清晰、稳固的安全底盘。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-node journey-node-3">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看成长阶段" data-journey="成长">
-${JOURNEY_STAR_MARKUP}<em>成长</em><span class="journey-card"><b>成长</b><small>通过课程与实践，让判断力持续成长。</small></span>
+${journeyStarMarkup("成长")}<em>成长</em><span class="journey-card"><b>成长</b><small>通过课程与实践，让判断力持续成长。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-node journey-node-4">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看陪伴阶段" data-journey="陪伴">
-${JOURNEY_STAR_MARKUP}<em>陪伴</em><span class="journey-card"><b>陪伴</b><small>跟随家庭变化，持续检视、复盘与调整。</small></span>
+${journeyStarMarkup("陪伴")}<em>陪伴</em><span class="journey-card"><b>陪伴</b><small>跟随家庭变化，持续检视、复盘与调整。</small></span>
 </button>
 </div>
 <div class="journey-orbit journey-node journey-node-5">
 <button type="button" class="journey-star" aria-expanded="false" aria-label="查看认知阶段" data-journey="认知">
-${JOURNEY_STAR_MARKUP}<em>认知</em><span class="journey-card"><b>认知</b><small>建立基础财商判断，理解金钱、目标与家庭责任。</small></span>
+${journeyStarMarkup("认知")}<em>认知</em><span class="journey-card"><b>认知</b><small>建立基础财商判断，理解金钱、目标与家庭责任。</small></span>
 </button>
 </div>
 </div>
@@ -274,6 +274,7 @@ export function AcademyHomePage() {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const path = visual?.querySelector<SVGPathElement>(".spark-full-route");
     const pathLength = path?.getTotalLength() ?? 0;
+    const entryLength = visual?.querySelector<SVGPathElement>(".spark-entry-route")?.getTotalLength() ?? 0;
     const rearLength = visual?.querySelector<SVGPathElement>(".spark-rear-route")?.getTotalLength() ?? 0;
     let frame = 0;
     let previous = 0;
@@ -288,8 +289,9 @@ export function AcademyHomePage() {
           if (node.orbit && path) {
             const distance = node.progress * pathLength;
             const point = path.getPointAtLength(distance);
-            const opacity = 1;
-            const behindFlame = distance <= rearLength;
+            const edge = Math.max(0, Math.min(1, node.progress / .08, (1 - node.progress) / .1));
+            const opacity = edge * edge * (3 - 2 * edge);
+            const behindFlame = distance >= entryLength && distance <= entryLength + rearLength && point.x < 300;
             node.orbit.style.left = `${logo.offsetLeft + point.x * width / 520}px`;
             node.orbit.style.top = `${logo.offsetTop + point.y * width / 520}px`;
             node.orbit.style.opacity = String(opacity);
