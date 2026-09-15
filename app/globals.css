@@ -668,8 +668,8 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .academy-home .logo-journey .flame-light img{position:absolute;height:auto}
 .academy-home .logo-journey.flame-lit .flame-light{opacity:1}
 .academy-home .journey-star .spark-pink-accent,.academy-home .journey-star .spark-pink-soft{transition:stop-color .18s ease}
-.academy-home .journey-node.active .spark-pink-accent,.academy-home .journey-star:hover .spark-pink-accent,.academy-home .journey-star:focus-visible .spark-pink-accent{stop-color:#eeb0bd}
-.academy-home .journey-node.active .spark-pink-soft,.academy-home .journey-star:hover .spark-pink-soft,.academy-home .journey-star:focus-visible .spark-pink-soft{stop-color:#f7d7dd}
+.academy-home .journey-node.active .spark-pink-accent,.academy-home .journey-star:hover .spark-pink-accent,.academy-home .journey-star:focus-visible .spark-pink-accent{stop-color:#fffefb}
+.academy-home .journey-node.active .spark-pink-soft,.academy-home .journey-star:hover .spark-pink-soft,.academy-home .journey-star:focus-visible .spark-pink-soft{stop-color:#f5e6c2}
 .academy-home .logo-journey .journey-message{bottom:0;right:0;left:0;width:auto;text-align:center;padding:12px 0 0}
 .academy-home .logo-journey .journey-message:before{display:none}
 .academy-home .logo-journey .journey-message h3{font-size:27px;letter-spacing:-.025em;margin:7px 0}
