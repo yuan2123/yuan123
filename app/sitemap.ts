@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/site-url";
+import { posts } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
-  const routes = ["", "/about", "/courses", "/academy", "/resources", "/mentors", "/contact", "/register"];
+  const routes = ["", "/about", "/courses", "/academy", ...posts.map((post) => `/academy/${post.slug}`), "/resources", "/mentors", "/contact", "/register"];
   return routes.map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
