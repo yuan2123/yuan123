@@ -63,7 +63,6 @@ export function WealthJourney() {
   return <div ref={root} className="wealth-journey" data-paused={paused || hovered || !!active}>
     <div ref={track} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className="wealth-orbit" aria-label="财商学院五大板块">
       <div className="wealth-orbit-art" aria-hidden="true" dangerouslySetInnerHTML={{ __html: LOGO_JOURNEY_ART }} />
-      <div className="wealth-orbit-line" aria-hidden="true" />
       {academyTopics.map((topic, index) => <Link key={topic.id} href={topicHref(topic.id)} className="wealth-orbit-star"
         style={{ left: `${50 + Math.cos(index * Math.PI * 2 / 5 - Math.PI / 2) * 42}%`, top: `${50 + Math.sin(index * Math.PI * 2 / 5 - Math.PI / 2) * 35}%` }}
         onMouseEnter={() => setActive(topic.id)} onMouseLeave={() => setActive(null)} onFocus={() => setActive(topic.id)} onBlur={() => setActive(null)}
