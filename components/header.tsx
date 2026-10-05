@@ -21,7 +21,7 @@ export function Header() {
             <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""}>{item.label}</Link>
           ))}
         </nav>
-        <Link href="/register" className="button button-sm desktop-contact">课程报名</Link>
+        <Link href="/register" className="button button-sm desktop-contact">预约课程咨询</Link>
         <button className="mobile-menu-button" type="button" aria-label={open ? "关闭菜单" : "打开菜单"} aria-expanded={open} onClick={() => setOpen(!open)}>
           {open ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -30,7 +30,7 @@ export function Header() {
         <nav className="mobile-nav" aria-label="移动端导航">
           <div className="container">
             {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
-            <Link href="/register" className="button" onClick={() => setOpen(false)}>课程报名</Link>
+            <Link href="/register" className="button" onClick={() => setOpen(false)}>预约课程咨询</Link>
           </div>
         </nav>
       )}

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./journey.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { getSiteUrl } from "@/lib/site-url";

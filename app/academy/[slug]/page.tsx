@@ -1,3 +1,4 @@
+import { academyTopics, getPostTopic, topicHref } from "@/data/academy-topics";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,13 +24,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
   if (!post) notFound();
+  const topic = academyTopics.find((item) => item.id === getPostTopic(post.slug));
 
   return (
     <article className="knowledge-article">
       <header className="article-hero">
         <div className="container article-hero-inner">
           <nav className="article-breadcrumb" aria-label="面包屑导航">
-            <Link href="/academy">财商学院</Link><span aria-hidden="true">/</span><span>{post.category}</span>
+            <Link href="/academy">财商学院</Link><span aria-hidden="true">/</span>{topic ? <Link href={topicHref(topic.id)}>{topic.label}</Link> : <span>{post.category}</span>}
           </nav>
           <div className="article-kicker">✦ {post.category}</div>
           <h1>{post.title}</h1>
@@ -63,7 +65,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <ul>{post.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
           </section>}
 
-          <Link className="article-back" href="/academy">← 返回财商学院</Link>
+          <Link className="article-back" href={topic ? topicHref(topic.id) : "/academy"}>← 返回{topic ? `${topic.label}板块` : "财商学院"}</Link>
         </div>
         <aside className="article-aside">
           <div><span>星火观点</span><p>先建立判断，再选择工具。让每一次财富决策都围绕家庭真实目标展开。</p></div>

@@ -1,0 +1,35 @@
+.wealth-journey{width:100%;max-width:560px;margin:auto;color:#513a16}
+.wealth-orbit{position:relative;width:100%;aspect-ratio:1.12;isolation:isolate}
+.wealth-orbit-art{position:absolute;inset:8% 10%;opacity:.82;pointer-events:none}
+.wealth-orbit-art svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wealth-orbit-line{position:absolute;inset:15% 8%;border:1px solid #bd943b40;border-radius:50%;pointer-events:none}
+.wealth-orbit-star{position:absolute;width:72px;height:72px;transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 3px 6px #75521420);border-radius:12px}
+.wealth-orbit-star svg{width:100%;height:100%;display:block;transition:filter .2s}
+.wealth-orbit-star:hover svg,.wealth-orbit-star:focus-visible svg{filter:brightness(1.12) drop-shadow(0 0 8px #cda14950)}
+.wealth-orbit-star:focus-visible{outline:3px solid #77511c;outline-offset:4px}
+.wealth-orbit-caption{text-align:center;min-height:150px;padding:18px 8px 0}
+.wealth-orbit-caption>span{font-size:12px;letter-spacing:.12em;color:#8b672c}
+.wealth-orbit-caption h3{font-size:clamp(22px,2.3vw,28px);margin:10px 0}
+.wealth-orbit-caption p{font-size:14px;line-height:1.8;color:#74654c;min-height:26px;margin:0}
+.orbit-pause{font:inherit;font-size:12px;color:#77511c;background:transparent;border:1px solid #b795584d;border-radius:99px;padding:7px 14px;cursor:pointer;margin-top:12px}
+.orbit-pause:focus-visible,.academy-topics a:focus-visible,.academy-home a.course:focus-visible{outline:3px solid #8b672c;outline-offset:4px}
+.academy-topics{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.academy-topics a{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:1px solid #dbcdb4;border-radius:999px;background:#fffdf8;color:#65543b;min-height:48px}
+.academy-topics a[aria-current="page"]{background:#79561f;color:#fff;border-color:#79561f}
+.academy-topics a:hover{border-color:#79561f}
+.academy-topics span{font-size:12px;opacity:.8}
+.topic-description{color:#74654c;margin-bottom:24px;line-height:1.8}
+.article-result-count{font-size:14px;color:#74654c;margin:20px 0}
+#articles,#current-courses,#experiences{scroll-margin-top:110px}
+.academy-home a.course{color:inherit;text-decoration:none;transition:background .2s,border-color .2s}
+.academy-home a.course:hover{background:#f5eddd;border-color:#b79558}
+.academy-home .path-section .section-head h2{color:#26231e}
+@media(max-width:600px){
+ .wealth-orbit-star{width:58px;height:58px;animation:none}
+ .wealth-orbit-caption{padding-top:8px;min-height:110px}
+ .orbit-pause{display:none}
+ .academy-home .path-section .growth-step p,.academy-home .standard-list p{font-size:14px;line-height:1.8}
+ .academy-home .service-stage-line{font-size:12px;gap:5px}
+ .academy-topics{gap:8px}.academy-topics a{padding:10px 16px}
+}
+@media(hover:none),(prefers-reduced-motion:reduce){.wealth-orbit-star{animation:none}.orbit-pause{display:none}}
