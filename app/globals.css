@@ -774,3 +774,23 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 
 .academy-home .logo-journey .journey-spark.active svg>path{fill:#fffdf5;stroke:#a98443}
 .academy-home .logo-journey .journey-spark.active svg>text{fill:#604016}
+
+/* Academy editorial tables stay within the reading column on narrow screens. */
+.article-feature figcaption{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.7}
+.article-content{min-width:0}
+.article-content>h2{margin:40px 0 18px}
+.article-content a:not(.article-back){color:#916a25;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.article-table-scroll{max-width:100%;overflow-x:auto;margin:26px 0;border:1px solid var(--line);border-radius:12px}
+.article-table-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.article-table-scroll table{width:100%;min-width:460px;border-collapse:collapse;font-size:14px;line-height:1.8}
+.article-table-scroll th,.article-table-scroll td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.article-table-scroll th{background:#f7f1e5;color:#4c402a;font-weight:600}
+.article-table-scroll tbody tr:last-child td{border-bottom:0}
+
+.article-content>p:not(.article-lead):not(.article-disclaimer){margin:0 0 22px;color:#554f45;font-size:17px;line-height:2.05}
+.article-cover-diagram{background:#faf7ef}
+.article-cover-diagram img{object-fit:contain}
+.article-card:hover .article-cover-diagram img{transform:none;filter:none}
+.article-cover-diagram span{font-size:10px;padding:3px 7px}
+.article-feature-diagram img{max-height:none;object-fit:contain;box-shadow:none;border:1px solid var(--line)}
+@media(max-width:600px){.article-content>p:not(.article-lead):not(.article-disclaimer){font-size:16px;line-height:2}}

@@ -1,9 +1,11 @@
-import { academyTopics, getPostTopic, topicHref } from "@/data/academy-topics";
+import { academyTopics, topicHref } from "@/data/academy-topics";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { posts } from "@/data/site";
+import { posts } from "@/data/academy-articles";
+
+import { ArticleContent } from "@/components/article-content";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -24,7 +26,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
   if (!post) notFound();
-  const topic = academyTopics.find((item) => item.id === getPostTopic(post.slug));
+  const topic = academyTopics.find((item) => item.id === post.topic);
 
   return (
     <article className="knowledge-article">
@@ -36,40 +38,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="article-kicker">✦ {post.category}</div>
           <h1>{post.title}</h1>
           <p>{post.excerpt}</p>
-          <div className="article-meta article-hero-meta"><span>{post.date}</span><span>{post.read}</span><span>星火财商学院</span></div>
+          <div className="article-meta article-hero-meta"><time dateTime={post.date}>{post.date}</time><span>{post.read}</span><span>星火财商学院 · 编辑内容</span></div>
         </div>
       </header>
 
-      {"cover" in post && post.cover && <div className="container article-feature"><Image src={post.cover} alt="" width={1440} height={960} priority /></div>}
+      <figure className={`container article-feature${post.coverKind === "diagram" ? " article-feature-diagram" : ""}`}><Image src={post.cover} alt={post.alt} width={1200} height={800} sizes="(max-width: 780px) 100vw, 1100px" priority /><figcaption>{post.coverKind === "diagram" ? "图解根据本文情境绘制；算例不代表实际收益、费用或待遇。" : "图像生成插画，仅用于主题示意，非真实客户或就医记录。"}</figcaption></figure>
 
       <div className="container article-layout">
         <div className="article-content">
-          <p className="article-lead">{post.lead}</p>
-          {post.sections.map((section) => (
-            <section key={section.heading}>
-              <h2>{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </section>
-          ))}
-
-          <section className="article-checklist">
-            <span>家庭行动清单</span>
-            <h2>从今天可以开始的五件事</h2>
-            <ol>{post.checklist.map((item) => <li key={item}>{item}</li>)}</ol>
-          </section>
-
-          <p className="article-disclaimer">本文用于财商知识普及，不构成针对个人的投资、保险、法律或税务建议。具体安排应结合家庭实际情况，并在需要时咨询具备相应资质的专业人士。</p>
-
-          {post.sources.length > 0 && <section className="article-sources">
-            <h2>参考资料</h2>
-            <ul>{post.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
-          </section>}
+          <ArticleContent blocks={post.blocks} />
+          <p className="article-disclaimer">{post.topic === "medical" ? "本文提供家庭就医准备与资料整理思路，不用于诊断或治疗。具体就医、医保与商业保险事项，请分别向接诊机构、参保地经办机构和保险公司核实。" : "本文用于家庭财商教育，假设算例不代表真实客户或收益承诺。具体金融、保险、法律与税务事项，需结合实际情况核实。"}</p>
 
           <Link className="article-back" href={topic ? topicHref(topic.id) : "/academy"}>← 返回{topic ? `${topic.label}板块` : "财商学院"}</Link>
         </div>
         <aside className="article-aside">
-          <div><span>星火观点</span><p>先建立判断，再选择工具。让每一次财富决策都围绕家庭真实目标展开。</p></div>
-          <Link href="/contact">预约咨询 →</Link>
+          <div><span>从家庭问题开始</span><p>先梳理目标、现金流和责任，再讨论适合的工具。你可以带着问题预约一次家庭规划咨询。</p></div>
+          <Link href="/contact">预约家庭规划咨询 →</Link>
         </aside>
       </div>
     </article>
