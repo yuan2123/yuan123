@@ -215,3 +215,26 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 @media(prefers-reduced-motion:reduce) {
   .academy-home *, .academy-home *:before, .academy-home *:after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
 }
+
+
+/* Refine alignment and keep calls to action within the same visual system. */
+.academy-home .growth-path { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.academy-home :is(.nav-cta,.academy-mobile-cta) {
+  background:linear-gradient(135deg,#a57621,#c49a42);
+  border:1px solid #ae8231;
+  box-shadow:0 8px 22px rgba(183,138,50,.18);
+  transition:transform .2s,filter .2s;
+}
+.academy-home .course {
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+@media(hover:hover) {
+  .academy-home :is(.nav-cta,.academy-mobile-cta):hover { transform:translateY(-1px); filter:brightness(1.06); }
+  .academy-home .course:hover { transform:translateY(-2px); border-color:#cfb779; box-shadow:0 14px 30px rgba(47,43,28,.08); }
+}
+@media(max-width:1100px) {
+  .academy-home .growth-path { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  .academy-home .growth-path { grid-template-columns:1fr; }
+}
