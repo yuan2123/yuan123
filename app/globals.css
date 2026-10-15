@@ -794,3 +794,76 @@ body:has(.academy-home) .site-header, body:has(.academy-home) > .footer { displa
 .article-cover-diagram span{font-size:10px;padding:3px 7px}
 .article-feature-diagram img{max-height:none;object-fit:contain;box-shadow:none;border:1px solid var(--line)}
 @media(max-width:600px){.article-content>p:not(.article-lead):not(.article-disclaimer){font-size:16px;line-height:2}}
+
+
+/* Shared card finish: soft edges, consistent spacing, and readable mobile cards. */
+:root {
+  --card-radius: 20px;
+  --card-edge: #e5dac7;
+  --card-shadow: 0 6px 22px rgb(72 53 16 / 4%);
+}
+:is(.article-card,.resource-card,.mentor-card,.program-card,.contact-form),
+.contact-methods article,
+.service-map-list article {
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+:is(.article-card,.resource-card,.mentor-card,.contact-form),
+.contact-methods article {
+  border-color: var(--card-edge);
+}
+:is(.article-body,.resource-body,.mentor-content) { padding: 26px; }
+:is(.article-grid,.resource-grid,.mentor-grid,.program-grid) { gap: 24px; }
+.academy-home .path-section .growth-path { gap: 20px; }
+.academy-home .path-section .growth-step,
+.academy-home .courses-section .course {
+  border-radius: var(--card-radius);
+  border-color: var(--card-edge);
+  box-shadow: var(--card-shadow);
+}
+.academy-home .course-list { gap: 16px; }
+.academy-home .courses-section .course { padding: 26px; }
+.academy-home :is(.manifesto-grid,.standard-list) {
+  border-radius: var(--card-radius);
+  border-color: #484238;
+  background: #484238;
+}
+:is(.article-card,.resource-card) {
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+:is(.article-card,.resource-card):focus-within {
+  border-color: #ad8030;
+  box-shadow: 0 0 0 2px rgb(173 128 48 / 18%);
+}
+@media (hover:hover) {
+  :is(.article-card,.resource-card):hover,
+  .academy-home .courses-section .course:hover {
+    transform: translateY(-2px);
+    border-color: #c9af7d;
+    box-shadow: 0 10px 28px rgb(72 53 16 / 8%);
+  }
+  .academy-home .path-section .growth-step:hover {
+    transform: none;
+    box-shadow: var(--card-shadow);
+  }
+}
+@media (max-width:600px) {
+  :root { --card-radius: 16px; }
+  :is(.article-grid,.resource-grid,.mentor-grid,.program-grid) { gap: 16px; }
+  :is(.article-body,.resource-body,.mentor-content,.contact-form),
+  .contact-methods article { padding: 22px; }
+  .academy-home .courses-section .course { padding: 20px; gap: 14px; }
+  .academy-home .path-section .growth-path { grid-template-columns: 1fr; gap: 14px; }
+  .academy-home .path-section .growth-step {
+    min-height: 0; padding: 22px; grid-template-columns: 36px minmax(0,1fr);
+    gap: 6px 16px;
+  }
+  .academy-home .path-section .growth-no { margin: 0; padding-top: 2px; }
+  .academy-home .path-section .growth-step h3 { margin: 0; font-size: 17px; }
+  .academy-home .path-section .growth-step p { font-size: 14px; line-height: 1.8; }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.article-card,.resource-card) { transition: none; }
+  :is(.article-card,.resource-card):hover,
+  .academy-home .courses-section .course:hover { transform: none; }
+}
