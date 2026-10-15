@@ -28,13 +28,13 @@ const HOME_MARKUP = `
 </a>
 <nav aria-label="主导航" class="menu">
 <a class="menu-home-active" href="/">首页</a><a href="/about">关于我们</a><a href="/courses">课程体系</a><a href="/academy">财商学院</a>
-<a href="/contact">联系我们</a><a class="nav-cta" href="/register">预约课程咨询</a>
+<a href="/contact">联系我们</a><a class="nav-cta" href="/contact">预约课程咨询</a>
 </nav>
-<button type="button" aria-expanded="false" aria-controls="academy-mobile-menu" aria-label="打开菜单" class="mobile-toggle">☰</a>
+<button type="button" aria-expanded="false" aria-controls="academy-mobile-menu" aria-label="打开菜单" class="mobile-toggle">☰</button>
 </div>
 <div id="academy-mobile-menu" class="academy-mobile-menu" aria-label="移动端导航">
 <a href="/">首页</a><a href="/about">关于我们</a><a href="/courses">课程体系</a><a href="/academy">财商学院</a>
-<a href="/contact">联系我们</a><a class="academy-mobile-cta" href="/register">预约课程咨询</a>
+<a href="/contact">联系我们</a><a class="academy-mobile-cta" href="/contact">预约课程咨询</a>
 </div>
 </header>
 <div id="top">
@@ -53,7 +53,7 @@ const HOME_MARKUP = `
 <p class="hero-copy">星火财商专注中产及高净值家庭一站式财富管理，深耕财商教育、资产配置与专属理财规划。围绕家庭不同财富阶段，提供财务诊断、方案定制、落地执行与财商授课服务。</p>
 <div class="actions">
 <a class="btn btn-primary" href="/courses">了解课程体系 →</a>
-<a class="btn btn-ghost" href="/register">预约课程咨询</a>
+<a class="btn btn-ghost" href="/contact">预约课程咨询</a>
 </div>
 </div>
 <div class="visual reveal logo-journey">
@@ -147,7 +147,7 @@ ${journeyStarMarkup("认知")}<em>认知</em><span class="journey-card"><b>认�
 <span class="eyebrow">Our Standard</span>
 <h2>让每一个家庭，<br/>看懂后再选择</h2>
 <p>不靠焦虑推动决策，用清楚的方法、边界与持续检视建立长期信任。</p>
-<div class="actions"><a class="btn btn-primary" href="/register">预约课程咨询 →</a><a class="btn btn-ghost" href="/about">了解我们</a></div>
+<div class="actions"><a class="btn btn-primary" href="/contact">预约课程咨询 →</a><a class="btn btn-ghost" href="/about">了解我们</a></div>
 </div>
 <div class="standard-list reveal">
 <article><b aria-hidden="true">${SPARK_MARKUP}</b><div><strong>认知先于销售</strong><p>先理解家庭真正需要什么，再讨论工具。</p></div></article>
